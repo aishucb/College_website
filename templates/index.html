@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Rubik:wght@300&family=Zilla+Slab:ital,wght@0,400;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/swiper-bundle.min.css') }} " />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}  " />
+  <link rel="stylesheet" href="{{ url_for('static', filename='footer/styles/styles.css') }}  " />
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet'>
+                                <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+                                
+  <style>
+    /******************************
+	      Boilerplate Css
+******************************/
+
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      background: #ffffff;
+      color: #000000;
+      font: 12px/1.4 Arial;
+      min-width: 1300px;
+      position: relative;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+
+    /******************************
+	  Navigation Menu
+******************************/
+
+    .horizontal-menu {
+      background-color: #ffffff;
+      color: #000000;
+      display: block;
+      height: 50px;
+      margin: 20px auto;
+      max-width: 1100px;
+      font-family: "Rubik", sans-serif;
+      font-weight: bold;
+    }
+
+
+    /******************************
+					Globals
+******************************/
+
+    .horizontal-menu.plain,
+    .horizontal-menu.dropdown {
+      display: block;
+    }
+
+    .horizontal-menu.plain li,
+    .horizontal-menu.dropdown li {
+      float: left;
+      height: 100%;
+      width: 16.6666%;
+    }
+
+    .horizontal-menu.plain li a,
+    .horizontal-menu.dropdown li>a {
+      display: block;
+      height: 100%;
+      line-height: 50px;
+      text-align: center;
+      transition: background-position 0.2s ease 0s;
+    }
+
+    .horizontal-menu.plain li a,
+    .horizontal-menu.dropdown li>div>a {
+      transition: background-position 0.1s ease 0s;
+    }
+
+    .horizontal-menu.plain li:not(.active):hover a,
+    .horizontal-menu.dropdown li>div>a:hover {
+      color: #000000;
+      background-position: 100% 0;
+    }
+
+    .horizontal-menu.plain li.active a:active,
+    .horizontal-menu.dropdown>div:not(.active):hover>a:active {
+      background: #E5B300;
+      color: #FFF;
+    }
+
+
+    /******************************
+    Plain Horizontal Menu
+******************************/
+
+    .horizontal-menu.plain li a {
+      background: #ffffff linear-gradient(to left, #3B3D3F 50%, #2c2d2f 50%) repeat scroll 0 0 / 200% 100%;
+    }
+
+    .horizontal-menu.plain li.active a {
+      background: #DB3839;
+      color: #FFF;
+    }
+
+
+    /******************************
+Horizontal Menu With Dropdowns
+******************************/
+
+    .horizontal-menu.dropdown li,
+    .horizontal-menu.dropdown li>a {
+      transition: background-color 0.2s ease;
+    }
+
+    .horizontal-menu.dropdown li {
+      position: relative;
+    }
+
+    .horizontal-menu.dropdown li>a {
+      text-transform: uppercase;
+    }
+
+    .horizontal-menu.dropdown li>div {
+      background: #ffffff;
+      display: none;
+      min-width: 200%;
+      overflow: hidden;
+      position: absolute;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .horizontal-menu.dropdown li:not(:first-of-type):not(:last-of-type)>div {
+      left: -50%;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .horizontal-menu.dropdown li:first-of-type>div {
+      left: 0;
+      border-radius: 0 0 3px 0;
+    }
+
+    .horizontal-menu.dropdown li:last-of-type>div {
+      right: 0;
+      border-radius: 0 0 0 3px;
+    }
+
+    .horizontal-menu.dropdown li:hover>div {
+      display: block;
+    }
+
+    .horizontal-menu.dropdown li:hover,
+    .horizontal-menu.dropdown li:hover>div {
+      background: #00000082;
+    }
+
+    .horizontal-menu.dropdown li>div>a {
+      background: #E5B300 linear-gradient(to left, #E5B300 50%, #ffffff 50%) repeat scroll 0 0 / 200% 100%;
+      border-radius: 2px;
+      display: block;
+      float: left;
+      margin: 2%;
+      padding: 8px 10px;
+      text-align: center;
+      transition: background-position 0.2s ease;
+      width: 46%;
+    }
+
+    .horizontal-menu.dropdown li>div>a:hover {
+      background-position: 100% 0;
+      cursor: pointer;
+    }
+
+    /*jeswin's header*/
+    a {
+      text-decoration: none;
+    }
+
+    .hightlight {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      min-height: 808px;
+      align-items: center;
+      padding: 50px 80px;
+    }
+
+    @media (max-width: 991px) {
+      .hightlight {
+        padding: 0 20px;
+      }
+    }
+
+    .first {
+      position: absolute;
+      inset: 100px 0 0 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .div-a {
+      position: relative;
+      justify-content: center;
+      align-items: flex-start;
+      display: flex;
+      margin-top: 301px;
+      gap: 14px;
+    }
+
+    @media (max-width: 991px) {
+      .div-a {
+        max-width: 100%;
+        margin-top: 140px;
+        flex-wrap: wrap;
+      }
+    }
+
+    .div-b {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      align-self: center;
+      white-space: nowrap;
+      margin: auto 0;
+      font: 600 58px/110% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-b {
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+
+    .div-c {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      margin: auto 0;
+      font: 600 58px/110% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-c {
+        font-size: 40px;
+      }
+    }
+
+    .div-d {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      white-space: nowrap;
+      background-color: var(--Yellow, #e5b300);
+      align-self: stretch;
+      justify-content: center;
+      padding: 8px;
+      font: 500 64px/84% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-d {
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+
+    .div-e {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      align-self: center;
+      margin: auto 0;
+      font: 600 58px/110% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-e {
+        font-size: 40px;
+      }
+    }
+
+    .div-f {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      white-space: nowrap;
+      background-color: #e5b300;
+      align-self: center;
+      justify-content: center;
+      margin: auto 0;
+      padding: 0 7px;
+      font: 600 58px/110% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-f {
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+
+    .div-g {
+      position: relative;
+      color: var(--White, #fff);
+      white-space: nowrap;
+      justify-content: center;
+      border-radius: 26px;
+      border: 1px solid #fff;
+      margin: 39px auto 241px;
+      padding: 18px 60px;
+      font: 800 32px/150% Poppins, sans-serif;
+      width: fit-content;
+      display: flex;
+    }
+
+    @media (max-width: 991px) {
+      .div-g {
+        white-space: initial;
+        margin-bottom: 40px;
+        padding: 0 24px;
+      }
+    }
+
+    .div {
+      display: flex;
+      flex-direction: column;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      min-height: 527px;
+      padding: 50px 80px 50px 34px;
+    }
+
+    @media (max-width: 991px) {
+      .div {
+        padding: 0 20px;
+      }
+    }
+
+    .img {
+      position: absolute;
+      inset: 100px 0 0 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .div-2 {
+      position: relative;
+      display: flex;
+      width: 100%;
+      align-items: start;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 117px 18px 0 0;
+    }
+
+    @media (max-width: 991px) {
+      .div-2 {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin: 40px 10px 0 0;
+      }
+    }
+
+    .div-3 {
+      justify-content: center;
+      display: flex;
+      gap: 14px;
+    }
+
+    @media (max-width: 991px) {
+      .div-3 {
+        max-width: 100%;
+        flex-wrap: wrap;
+      }
+    }
+
+    .div-4 {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      align-self: center;
+      flex-grow: 1;
+      white-space: nowrap;
+      margin: auto 0;
+      font: 600 58px/110% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-4 {
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+
+    .div-5 {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      white-space: nowrap;
+      background-color: var(--Yellow, #e5b300);
+      flex-grow: 1;
+      justify-content: center;
+      padding: 8px;
+      font: 600 64px/84% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-5 {
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+
+    .div-6 {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      align-self: center;
+      white-space: nowrap;
+      margin: auto 0;
+      font: 500 58px/110% Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-6 {
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+
+    .div-7 {
+      color: #fff;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      justify-content: center;
+      border-radius: 8px;
+      backdrop-filter: blur(2px);
+      background-color: rgba(255, 221, 51, 0.84);
+      margin-top: 119px;
+      padding: 17px 48px;
+      font: 700 20px/120% Helvetica, sans-serif;
+      margin-left: 49px;
+    }
+
+    @media (max-width: 991px) {
+      .div-7 {
+        white-space: initial;
+        padding: 0 20px;
+      }
+    }
+
+    .div-8 {
+      position: relative;
+      margin: 13px 18px 31px 0;
+    }
+
+    @media (max-width: 991px) {
+      .div-8 {
+        max-width: 100%;
+        margin-right: 10px;
+      }
+    }
+
+    .div-9 {
+      gap: 20px;
+      display: flex;
+    }
+
+    @media (max-width: 991px) {
+      .div-9 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 71%;
+      margin-left: 0px;
+    }
+
+    @media (max-width: 991px) {
+      .column {
+        width: 100%;
+      }
+    }
+
+    .div-10 {
+      position: relative;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    @media (max-width: 991px) {
+      .div-10 {
+        max-width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    .div-11 {
+      color: var(--White, #fff);
+      font-feature-settings: "clig" off, "liga" off;
+      background-color: #e5b300;
+      width: 507px;
+      max-width: 100%;
+      justify-content: center;
+      padding: 0 7px;
+      font: 600 58px/64px Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-11 {
+        max-width: 100%;
+        font-size: 40px;
+        line-height: 49px;
+      }
+    }
+
+    .div-12 {
+      color: #fff;
+      font-feature-settings: "clig" off, "liga" off;
+      letter-spacing: 0.5px;
+      align-self: stretch;
+      margin-top: 130px;
+      font: 400 20px/28px Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-12 {
+        max-width: 100%;
+      }
+    }
+
+    .column-2 {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 29%;
+      margin-left: 20px;
+    }
+
+    @media (max-width: 991px) {
+      .column-2 {
+        width: 100%;
+      }
+    }
+
+    .div-13 {
+      color: #fff;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      justify-content: center;
+      border-radius: 8px;
+      backdrop-filter: blur(2px);
+      background-color: rgba(255, 221, 51, 0.84);
+      position: relative;
+      width: 100%;
+      margin: auto 0;
+      padding: 17px 18px;
+      font: 700 20px/120% Helvetica, sans-serif;
+      display: flex;
+    }
+
+    @media (max-width: 991px) {
+      .div-13 {
+        white-space: initial;
+        margin-top: 140px;
+      }
+    }
+
+    /*gallery*/
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      overflow: hidden;
+
+      margin: auto;
+    }
+
+    .gallery__strip {
+      min-height: 100vh;
+    }
+
+    .gallery__strip__wrapper {
+      flex: 0 0 100%;
+      justify-content: flex-end;
+      background: #FFFEEE;
+      border-right: 2px solid #333;
+      position: relative;
+    }
+
+    @media (min-width: 500px) {
+      .gallery__strip__wrapper {
+        flex: 0 0 50%;
+      }
+    }
+
+    @media (min-width: 950px) {
+      .gallery {
+        height: 150vh;
+      }
+
+      .gallery__strip.one {
+        animation: 60s move-it ease alternate infinite 5s;
+        transform: translateY(2%);
+      }
+
+      .gallery__strip.three {
+        animation: 70s move-it ease alternate infinite 6s;
+        transform: translateY(2%);
+      }
+
+      .gallery__strip.two {
+        animation: 58s move-it-2 ease alternate infinite 5s;
+        transform: translateY(-50%);
+      }
+
+      .gallery__strip.four {
+        animation: 65s move-it-2 ease alternate infinite 5.5s;
+        transform: translateY(-50%);
+      }
+
+      .gallery__strip:hover {
+        animation-play-state: paused;
+      }
+
+      .gallery__strip__wrapper {
+        flex: 0 0 25%;
+      }
+    }
+
+    .photo {
+      position: relative;
+      text-align: right;
+      padding-bottom: 3rem;
+    }
+
+    .photo__image img {
+      width: 90%;
+      transform: translateX(30%);
+      transition: 1s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+    }
+
+    .photo__name {
+      text-transform: uppercase;
+      font-size: 40px;
+      letter-spacing: 2px;
+      color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #E5B300;
+      margin-top: -25px;
+      transition: 0.4s ease-in-out 0.4s;
+      position: relative;
+      width: 100%;
+    }
+
+    .photo:hover .photo__image img {
+      transform: translateX(0%);
+    }
+
+    .photo:hover .photo__name {
+      color: #E5B300;
+      -webkit-text-stroke-color: #E5B300;
+    }
+
+    @keyframes move-it {
+
+      0%,
+      90%,
+      100% {
+        transform: translateY(2%);
+      }
+
+      45% {
+        transform: translateY(-50%);
+      }
+    }
+
+    @keyframes move-it-2 {
+
+      0%,
+      90%,
+      100% {
+        transform: translateY(-50%);
+      }
+
+      45% {
+        transform: translateY(5%);
+      }
+    }
+
+    #photogallery {
+      box-sizing: border-box;
+    }
+
+
+    /*Latest new*/
+    #latestnews  article {
+  --img-scale: 1.001;
+  --title-color: black;
+  --link-icon-translate: -20px;
+  --link-icon-opacity: 0;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: none;
+  background: #fff;
+  transform-origin: center;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+#latestnews  article a::after {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: 0;
+  cursor: pointer;
+  content: "";
+}
+
+/* basic #latestnews  article elements styling */
+#latestnews  article h2 {
+  margin: 0 0 18px 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.9rem;
+  letter-spacing: 0.06em;
+  color: var(--title-color);
+  transition: color 0.3s ease-out;
+}
+
+#latestnews figure {
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+#latestnews  article img {
+  max-width: 100%;
+  transform-origin: center;
+  transform: scale(var(--img-scale));
+  transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+  padding: 24px;
+}
+
+#latestnews  article a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #E5B300;
+}
+
+#latestnews  article a:focus {
+  outline: 1px dotted #E5B300;
+}
+
+#latestnews  article a .icon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  transform: translateX(var(--link-icon-translate));
+  opacity: var(--link-icon-opacity);
+  transition: all 0.3s;
+}
+
+/* using the has() relational pseudo selector to update our custom properties */
+#latestnews  article:has(:hover, :focus) {
+  --img-scale: 1.1;
+  --title-color: #E5B300;
+  --link-icon-translate: 0;
+  --link-icon-opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+
+/************************ 
+Generic layout (demo looks)
+**************************/
+
+#latestnews *,
+#latestnews *::before,
+#latestnews *::after {
+  box-sizing: border-box;
+}
+
+#latestnews body {
+  margin: 0;
+  padding: 48px 0;
+  font-family: "Figtree", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  background-image: linear-gradient(45deg, #7c9885, #b5b682);
+  min-height: 100vh;
+}
+
+.articles {
+  display: grid;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+  #latestnews  article {
+    container: card/inline-size;
+  }
+  .article-body p {
+    display: none;
+  }
+}
+
+@container card (min-width: 380px) {
+  .article-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+  .article-body {
+    padding-left: 0;
+  }
+  #latestnews figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  #latestnews figure img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+/*visio*/
+#vision {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+}
+
+#vision .credit {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #000;
+}
+
+#vision .options {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+    min-width: 600px;
+    max-width: 900px;
+    width: calc(100% - 100px);
+    height: 400px;
+}
+
+@media screen and (max-width: 718px) {
+    #vision .options {
+        min-width: 520px;
+    }
+
+    #vision .options .option:nth-child(5) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    #vision .options {
+        min-width: 440px;
+    }
+
+    #vision .options .option:nth-child(4) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 558px) {
+    #vision .options {
+        min-width: 360px;
+    }
+
+    #vision .options .option:nth-child(3) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    #vision .options {
+        min-width: 280px;
+    }
+
+    #vision .options .option:nth-child(2) {
+        display: none;
+    }
+}
+
+#vision .options .option {
+    position: relative;
+    overflow: hidden;
+    min-width: 60px;
+    margin: 10px;
+    background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+    background-size: auto 120%;
+    background-position: center;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+#vision .options .option:nth-child(1) {
+    --defaultBackground: #ED5565;
+}
+
+#vision .options .option:nth-child(2) {
+    --defaultBackground: #FC6E51;
+}
+
+#vision .options .option:nth-child(3) {
+    --defaultBackground: #FFCE54;
+}
+
+#vision .options .option:nth-child(4) {
+    --defaultBackground: #2ECC71;
+}
+
+#vision .options .option:nth-child(5) {
+    --defaultBackground: #5D9CEC;
+}
+
+#vision .options .option:nth-child(6) {
+    --defaultBackground: #AC92EC;
+}
+
+#vision .options .option.active {
+    flex-grow: 10000;
+    transform: scale(1);
+    max-width: 600px;
+    margin: 0px;
+    border-radius: 40px;
+    background-size: auto 100%;
+    /*&:active {
+     transform:scale(0.9);
+  }*/
+}
+
+#vision .options .option.active .shadow {
+    box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+}
+
+#vision .options .option.active .label {
+    bottom: 20px;
+    left: 20px;
+}
+
+#vision .options .option.active .label .info>div {
+    left: 0px;
+    opacity: 1;
+}
+
+#vision .options .option:not(.active) {
+    flex-grow: 1;
+    border-radius: 30px;
+}
+
+#vision .options .option:not(.active) .shadow {
+    bottom: -40px;
+    box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+}
+
+#vision .options .option:not(.active) .label {
+    bottom: 10px;
+    left: 10px;
+}
+
+#vision .options .option:not(.active) .label .info>div {
+    left: 20px;
+    opacity: 0;
+}
+
+#vision .options .option .shadow {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 120px;
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+#vision .options .option .label {
+    display: flex;
+    position: absolute;
+    right: 0px;
+    height: 40px;
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+#vision .options .option .label .icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: white;
+    color: var(--defaultBackground);
+}
+
+#vision .options .option .label .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    color: white;
+    white-space: pre;
+}
+
+#vision .options .option .label .info>div {
+    position: relative;
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+}
+
+#vision .options .option .label .info .main {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#vision .options .option .label .info .sub {
+    transition-delay: 0.1s;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.contact-info body {
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    position: relative;
+}
+
+.contact-info h1, .contact-info {
+    position: relative;
+    z-index: 1; /* Bring the text and contact-info to the front */
+}
+
+.contact-info h1 {
+    color: #e5b300;
+    text-align: center;
+    font-size: 4em;
+}
+
+.contact-info {
+    height: 50px; /* Adjust the height as needed */
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.8); /* White background with opacity for .contact-info */
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.email {
+    color: #e6b209;
+}
+
+.phone {
+    color: #009933;
+}
+
+
+
+.contact-info p {
+    color: #000000;
+    line-height: 1.5;
+    padding: 0; /* Reset padding from the global style */
+}
+
+.contact-info  b {
+    font-weight: bold;
+}
+
+</style>
+                                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+                                <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
+
+
+ 
+</head>
+
+<body>
+
+  <nav class="horizontal-menu dropdown" style="margin-left:0px ;max-width: 100%;">
+ 
+    <ul>
+      <li class="active">
+        <a>About Us</a>
+        <div>
+          <a href="{{ url_for('abouthg') }}">About HGAE</a>
+          <a href="{{ url_for('my_link') }}">Management</a>
+          <a href="{{ url_for('aboutprincipal') }}">Our Director</a>
+          <a href="{{ url_for('abouthg') }}">Our Principal</a>
+          <a href="{{ url_for('abouthg') }}">Why HGAE</a>
+          
+          
+          <a href="{{ url_for('placement') }}">Placement cell</a>
+          
+
+        </div>
+      </li>
+      <li>
+        <a>Departments</a>
+        <div>
+          <a href="{{ url_for('civil') }}">Civil</a>
+          <a href="{{ url_for('mech') }}">Mechanical</a>
+          <a href="{{ url_for('cse') }}">Computer Science</a>
+          <a href="{{ url_for('eee') }}">EEE</a>
+          <a href="{{ url_for('eee') }}">Civil and Enviornmental</a>
+          <a href="{{ url_for('eee') }}">Artificial intellligence and data science</a>
+          <a href="{{ url_for('eee') }}">ECE</a>
+          <a href="{{ url_for('eee') }}">Computer Science(Data science)</a>
+          <a href="{{ url_for('eee') }}">Computer Science(Cyber security)</a>
+          <a href="{{ url_for('eee') }}">Science and humanities</a>
+        </div>
+      </li>
+      <li>
+        <a>Clubs</a>
+        <div>
+          <a href="{{ url_for('wissen') }}">Wissen</a>
+          <a href="{{ url_for('iedc') }}">Iedc</a>
+
+          <!-- <a>Link</a>
+          <a>Link</a>
+          <a>Link</a> -->
+        </div>
+      </li>
+      <li>
+        <a href="{{ url_for('facilites') }}">Students corner</a>
+        <div>
+          <a href="{{ url_for('studentcorner') }}">Gallery</a>
+          <a href="{{ url_for('studentcorner') }}">Union</a>
+          <a href="{{ url_for('studentcorner') }}">Club</a>
+          <a href="{{ url_for('studentcorner') }}">PTA</a>
+        </div> 
+      </li>
+      <li>
+        <a>login</a>
+        <div>
+          <a>Students</a>
+          <a>Parents</a>
+          <a>Staff</a>
+        </div>
+            <!-- <div>
+          <a>Link 4</a>
+          <a>Link 5</a>
+          <a>Link 6</a>
+        </div> -->
+      </li>
+      
+      <li>
+        <a>Student support</a>
+        <div>
+          <a>IIC</a>
+          <a>IEEE</a>
+          <a>IEDC</a>
+        </div>
+            <!-- <div>
+          <a>Link 4</a>
+          <a>Link 5</a>
+          <a>Link 6</a>
+        </div> -->
+      </li>
+      <li>
+        <a href="{{ url_for('placement') }}">Placement cell</a>
+        <!-- <div>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+        </div> -->
+      </li>
+      <li>
+        <a href="{{ url_for('facilites') }}">facilites</a>
+        <!-- <div>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+        </div> -->
+      </li>
+      
+      <li>
+        <a>Admissions</a>
+        <!-- <div>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
+        </div> -->
+      </li>
+      <li>
+        <a>Contact us</a>
+        <!-- <div>
+          <a>Link 1</a>
+          <a>Link 2</a>
+          <a>Link 3</a>
+          <a>Link 4</a>
+          <a>Link 5</a>
+          <a>Link 6</a>
+        </div> -->
+      </li>
+      <li>
+        <a>IQAC</a>
+        <!-- <div>
+          <a>Link 1</a>
+          <a>Link 2</a>
+          <a>Link 3</a>
+          <a>Link 4</a>
+          <a>Link 5</a>
+          <a>Link 6</a>
+        </div> -->
+      </li>
+      
+    </ul>
+  </nav>
+
+
+  <div name="designbyjeswin" style="margin-top: 100px;">
+    <div class="highlight">
+
+      <img loading="lazy" src="{{ url_for('static', filename='images/CLG.png') }}" style="width: 100%;height: auto;"
+        class="first" />
+      <div class="div-a">
+        <div class="div-b">Find</div>
+        <div class="div-c">Your</div>
+        <div class="div-d">Future</div>
+        <div class="div-e">At</div>
+        <div class="div-f">Holy Grace</div>
+      </div>
+      <a href="#" class="div-g">Explore</a>
+    </div>
+
+    <div class="div">
+      <img loading="lazy"
+        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ca2926786a963c4ea52ec1aea8feb32f2cf292a36fe1705173422350adb0eb34?apiKey=09e7159d4abd48129d4d8fd5c4b2996e&"
+        class="img" />
+      <div class="div-2">
+        <div class="div-3">
+          <div class="div-4">
+            <span style="
+                          font-family: Rubik, sans-serif;
+                          font-weight: 500;
+                        ">
+              Moulding
+            </span>
+            <span style="
+                          font-family: Rubik, sans-serif;
+                          font-weight: 600;
+                        "></span>
+          </div>
+          <div class="div-5">Innovators</div>
+          <div class="div-6">And</div>
+        </div>
+        <a href="#" class="div-7">Admissions - Indian Students</a>
+      </div>
+      <div class="div-8">
+        <div class="div-9">
+          <div class="column">
+            <div class="div-10">
+              <div class="div-11">Thought Leaders</div>
+              <div class="div-12">
+                Holy Grace which is committed to ‘God Own Country’ aims to groom a
+                new generation of highly qualified and ethically driven
+                professionals who will serve society in new and innovative ways
+                through their creative ideas and executions.
+              </div>
+            </div>
+          </div>
+          <div class="column-2">
+            <a href="#" class="div-13">Admissions - International Students</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 100px;"></div>
+  <div id="vision">
+    <div class="options">
+        <div class="option active" style="--optionBackground:url(https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-walking"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Vision</div>
+                    <div class="sub"></div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/8b69cdde47aa952e4176b4200052abf4/tumblr_o51p7mFFF21qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Mission</div>
+                    <div class="sub"></div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/5af3f8303456e376ceda1517553ba786/tumblr_o4986gakjh1qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Principal's message</div>
+                    <div class="sub"></div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/5516a22e0cdacaa85311ec3f8fd1e9ef/tumblr_o45jwvdsL11qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Secratary's message</div>
+                    <div class="sub"></div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/f19901f50b79604839ca761cd6d74748/tumblr_o65rohhkQL1qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Chairman's message</div>
+                    <div class="sub"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  <div style="height: 100px;"></div>
+  <div style="font-size: 40px;font-weight: bold;color: #E5B300; padding-top: 100px;text-align: center;">PHOTO GALLERY</div>
+  <div style="height: 100px;"></div>
+  <div name="gallerybygodwin" id="photogallery">
+    <div class="gallery">
+      <div class="gallery__strip__wrapper">
+        <div class="gallery__strip one">
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-kyoto.jpeg" alt="Kyoto">
+            </div>
+            <div class="photo__name">Kyoto</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-austria.jpeg" alt="Hallstatt">
+            </div>
+            <div class="photo__name">Hallstatt</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-peru.jpeg" alt="Peru">
+            </div>
+            <div class="photo__name">Peru</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-rio.jpeg" alt="Rio">
+            </div>
+            <div class="photo__name">Rio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery__strip__wrapper">
+        <div class="gallery__strip two">
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-italy.jpeg" alt="Italy">
+            </div>
+            <div class="photo__name">Italy</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-osaka.jpeg" alt="Osaka">
+            </div>
+            <div class="photo__name">Osaka</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-bali.jpeg" alt="Bali">
+            </div>
+            <div class="photo__name">Bali</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-paris2.jpg" alt="Paris">
+            </div>
+            <div class="photo__name">Paris</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery__strip__wrapper">
+        <div class="gallery__strip three">
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-cusco.jpeg" alt="Cusco">
+            </div>
+            <div class="photo__name">Cusco</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-rome.jpeg" alt="Rome">
+            </div>
+            <div class="photo__name">Rome</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-paris.jpeg" alt="Paris">
+            </div>
+            <div class="photo__name">Paris</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-bali2.jpeg" alt="Bali">
+            </div>
+            <div class="photo__name">Bali</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery__strip__wrapper">
+        <div class="gallery__strip four">
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-milan.jpeg" alt="Milan">
+            </div>
+            <div class="photo__name">Milan</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-budapest.jpg" alt="Budapest">
+            </div>
+            <div class="photo__name">Budapest</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-vienna.jpg" alt="Vienna">
+            </div>
+            <div class="photo__name">Vienna</div>
+          </div>
+          <div class="photo">
+            <div class="photo__image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/gg-mexico.jpg" alt="Mexico">
+            </div>
+            <div class="photo__name">Mexico</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div style="height: 140px;text-align:center;">
+    <div style="font-size: 40px;font-weight: bold;color: #E5B300; padding-top: 100px;">PLACEMENTS</div>
+  </div>
+  <div name="placementbygodwin" id="placement">
+    <div class="container swiper">
+      <div class="slide-container">
+        <div class="card-wrapper swiper-wrapper">
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="{{ url_for('static', filename='images/showImg/pexels-ali-pazani-2681751.jpg') }}" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="{{ url_for('static', filename='images/profile/technical-support.png') }}" alt="" />
+              <div class="name-job">
+                <h3 class="name">David Cardlos</h3>
+                <h4 class="job">Full Stack Developer</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="{{ url_for('static', filename='images/showImg/pexels-andrea-piacquadio-774909.jpg') }}"
+                alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="{{ url_for('static', filename='images/profile/technical-support.png') }}" alt="" />
+              <div class="name-job">
+                <h3 class="name">Siliana Ramis</h3>
+                <h4 class="job">Photographer</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="{{ url_for('static', filename='images/showImg/pexels-pixabay-220453.jpg') }}" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="{{ url_for('static', filename='images/profile/technical-support.png') }}" alt="" />
+              <div class="name-job">
+                <h3 class="name">Richard Bond</h3>
+                <h4 class="job">Data Analyst</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="{{ url_for('static', filename='images/showImg/pexels-vinicius-wiesehofer-1130626.jpg') }}"
+                alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="{{ url_for('static', filename='images/profile/technical-support.png') }}" alt="" />
+              <div class="name-job">
+                <h3 class="name">Priase</h3>
+                <h4 class="job">App Developer</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="{{ url_for('static', filename='images/showImg/pexels-ali-pazani-2681751.jpg') }}" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="{{ url_for('static', filename='images/profile/technical-support.png') }}" alt="" />
+              <div class="name-job">
+                <h3 class="name">James Laze</h3>
+                <h4 class="job">Blogger</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  <div style="height: 140px;text-align:center;">
+    <div style="font-size: 40px;font-weight: bold;color: #E5B300; padding-top: 100px;">LATEST NEWS</div>
+  </div>
+  <div class="div" name="latesteventbyjagath" id="latestnews">
+    <section class="articles">
+      {% for news in news_data %}
+      <article>
+        <div class="article-wrapper">
+          <figure>
+            <img src="{{ url_for('static', filename='UPLOAD_FOLDER/' + news['newsPicture']) }}" alt="" />
+          </figure>
+          <div class="article-body">
+            <h2>{{ news['newsTitle'] }}</h2>
+            <p>
+              {{ news['newsDescription'] }}
+            </p>
+            <a href="#" class="read-more">
+              {{ news['newsDate'] }}</span>
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor"> -->
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+      
+    </section>
+  </div>
+  <div name="footerbyjishnu">
+    <footer>
+      <div class="footer-main">
+        <div class="footer-info">
+          <div class="footer-info-div">
+            <img src="{{ url_for('static', filename='footer/assets/Frame 40.png') }}" alt="vonghub logo" class="footer-logo" />
+
+            <hr />
+
+            <p>
+              - G-9, Hemkunt Tower 98 Nehru Place <br />
+              New Delhi 110019
+            </p>
+            <p></p>
+            <a href="#" class="footer-link">- info@vong.earth</a>
+          </div>
+        </div>
+        <div class="footer-text">
+          <div class="footer-text-div">
+            <hr />
+            <p>
+              Let's transform the World together by taking small steps toward a
+              greener, cleaner, and more sustainable future. Be a part of the
+              VONG movement, and become the change-makers of tomorrow!
+            </p>
+            <hr />
+          </div>
+        </div>
+      </div>
+      <div class="footer-line">
+        <hr />
+      </div>
+      <div class="footer-social-icons">
+        <a href="#" class="footer-social-icon"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
+        <a href="#" class="footer-social-icon"><ion-icon name="logo-instagram" size="large"></ion-icon></a>
+        <a href="#" class="footer-social-icon"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
+
+        <a href="#" class="footer-social-icon"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
+      </div>
+      <div class="footer-contact">
+        <p>Contact us</p>
+        <p>FAQs</p>
+      </div>
+      <div class="footer-copyright">
+        <p>Copyright © 2023 – VONG</p>
+      </div>
+    </footer>
+  </div>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css'>
+<link rel='stylesheet' href='https://static.fontawesome.com/css/fontawesome-app.css'>
+<link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
+
+                            <script type='text/javascript'>$(".option").click(function () {
+$(".option").removeClass("active");
+$(this).addClass("active");
+
+});</script>
+  <script src="{{ url_for('static', filename='js/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX6"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9MvcJ4W+V1">
+
+    </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

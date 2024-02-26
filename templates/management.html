@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Management</title>
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        h1 {
+            color: #F7DF1E;
+            text-align: center;
+            font-size: 56px;
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: rowFadeInUp 1s ease-out forwards;
+        }
+
+        th {
+            background-color: #FFFADD;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rowFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+* {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      background: #ffffff;
+      color: #000000;
+      font: 12px/1.4 Arial;
+      min-width: 1300px;
+      position: relative;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+
+    /******************************
+	  Navigation Menu
+******************************/
+
+    .horizontal-menu {
+      background-color: #ffffff;
+      color: #000000;
+      display: block;
+      height: 50px;
+      margin: 20px auto;
+      max-width: 1100px;
+      font-family: "Rubik", sans-serif;
+      font-weight: bold;
+    }
+
+
+    /******************************
+					Globals
+******************************/
+
+    .horizontal-menu.plain,
+    .horizontal-menu.dropdown {
+      display: block;
+    }
+
+    .horizontal-menu.plain li,
+    .horizontal-menu.dropdown li {
+      float: left;
+      height: 100%;
+      width: 16.6666%;
+    }
+
+    .horizontal-menu.plain li a,
+    .horizontal-menu.dropdown li>a {
+      display: block;
+      height: 100%;
+      line-height: 50px;
+      text-align: center;
+      transition: background-position 0.2s ease 0s;
+    }
+
+    .horizontal-menu.plain li a,
+    .horizontal-menu.dropdown li>div>a {
+      transition: background-position 0.1s ease 0s;
+    }
+
+    .horizontal-menu.plain li:not(.active):hover a,
+    .horizontal-menu.dropdown li>div>a:hover {
+      color: #000000;
+      background-position: 100% 0;
+    }
+
+    .horizontal-menu.plain li.active a:active,
+    .horizontal-menu.dropdown>div:not(.active):hover>a:active {
+      background: #E5B300;
+      color: #FFF;
+    }
+
+
+    /******************************
+    Plain Horizontal Menu
+******************************/
+
+    .horizontal-menu.plain li a {
+      background: #ffffff linear-gradient(to left, #3B3D3F 50%, #2c2d2f 50%) repeat scroll 0 0 / 200% 100%;
+    }
+
+    .horizontal-menu.plain li.active a {
+      background: #DB3839;
+      color: #FFF;
+    }
+
+
+    /******************************
+Horizontal Menu With Dropdowns
+******************************/
+
+    .horizontal-menu.dropdown li,
+    .horizontal-menu.dropdown li>a {
+      transition: background-color 0.2s ease;
+    }
+
+    .horizontal-menu.dropdown li {
+      position: relative;
+    }
+
+    .horizontal-menu.dropdown li>a {
+      text-transform: uppercase;
+    }
+
+    .horizontal-menu.dropdown li>div {
+      background: #ffffff;
+      display: none;
+      min-width: 200%;
+      overflow: hidden;
+      position: absolute;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .horizontal-menu.dropdown li:not(:first-of-type):not(:last-of-type)>div {
+      left: -50%;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .horizontal-menu.dropdown li:first-of-type>div {
+      left: 0;
+      border-radius: 0 0 3px 0;
+    }
+
+    .horizontal-menu.dropdown li:last-of-type>div {
+      right: 0;
+      border-radius: 0 0 0 3px;
+    }
+
+    .horizontal-menu.dropdown li:hover>div {
+      display: block;
+    }
+
+    .horizontal-menu.dropdown li:hover,
+    .horizontal-menu.dropdown li:hover>div {
+      background: #00000082;
+    }
+
+    .horizontal-menu.dropdown li>div>a {
+      background: #E5B300 linear-gradient(to left, #E5B300 50%, #ffffff 50%) repeat scroll 0 0 / 200% 100%;
+      border-radius: 2px;
+      display: block;
+      float: left;
+      margin: 2%;
+      padding: 8px 10px;
+      text-align: center;
+      transition: background-position 0.2s ease;
+      width: 46%;
+    }
+
+    .horizontal-menu.dropdown li>div>a:hover {
+      background-position: 100% 0;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <nav class="horizontal-menu dropdown">
+        <ul>
+          <li class="active">
+            <a>Miscelleneous</a>
+            <div>
+              <a href="{{ url_for('my_link') }}">Management</a>
+              <a href="{{ url_for('facilites') }}">facilites</a>
+              <a href="{{ url_for('studentcorner') }}">studentcorner</a>
+              <a href="{{ url_for('placement') }}">Placement cell</a>
+              <a>Link</a>
+              <a>Link</a>
+    
+            </div>
+          </li>
+          <li>
+            <a>Courses</a>
+            <div>
+              <a href="{{ url_for('civil') }}">Civil</a>
+              <a href="{{ url_for('mech') }}">Mechanical</a>
+              <a href="{{ url_for('cse') }}">Computer Science</a>
+              <a href="{{ url_for('eee') }}">EEE</a>
+              <a>Link</a>
+              <a>Link</a>
+            </div>
+          </li>
+          <li>
+            <a>Clubs</a>
+            <div>
+              <a href="{{ url_for('wissen') }}">Wissen</a>
+              <a href="{{ url_for('iedc') }}">Iedc</a>
+    
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+            </div>
+          </li>
+          <li>
+            <a>Item 4</a>
+            <div>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+            </div>
+          </li>
+          <li>
+            <a>Item 5</a>
+            <div>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+            </div>
+          </li>
+          <li>
+            <a>Item 6</a>
+            <div>
+              <a>Link 1</a>
+              <a>Link 2</a>
+              <a>Link 3</a>
+              <a>Link 4</a>
+              <a>Link 5</a>
+              <a>Link 6</a>
+            </div>
+          </li>
+        </ul>
+      </nav>    
+    
+    
+    <h1>ORGANIZATION DIRECTORS</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Directors Name</th>
+                <th>Designation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>SANY EDATTUKARAN</td>
+                <td>Group Chairman</td>
+            </tr>
+            <!-- Add other rows as per the provided data -->
+            <tr>
+                <td>BENNY JOHN</td>
+                <td>General Secretary</td>
+            </tr>
+            <tr>
+                <td>VAKKACHAN</td>
+                <td>Chairman - MBA</td>
+            </tr>
+            <tr>
+                <td>JOSE KANNAMPILLY</td>
+                <td>Chairman - Pharmacy</td>
+            </tr>
+            <tr>
+                <td>PRINCE PADIKKALA</td>
+                <td>Chairman - Engineering</td>
+            </tr>
+            <tr>
+                <td>C V JOSE</td>
+                <td>Finance Director</td>
+            </tr>
+            <tr>
+                <td>ANTONY MALIEKKAL</td>
+                <td>Secretary - Engineering</td>
+            </tr>
+            <tr>
+                <td>JOSE ELINJIPILLY</td>
+                <td>Secretary - MBA</td>
+            </tr>
+            <tr>
+                <td>BENNY K T</td>
+                <td>Secretary - Pharmacy</td>
+            </tr>
+            <tr>
+                <td>ROBINSON</td>
+                <td>Executive Director - Auditor</td>
+            </tr>
+            <tr>
+                <td>Justin</td>
+                <td>Executive Director - Auditor</td>
+            </tr>
+            <tr>
+                <td>DENNY JOHN</td>
+                <td>Executive Director - Auditor</td>
+            </tr>
+            <tr>
+                <td>JOHN THALIYATH</td>
+                <td>Executive Director</td>
+            </tr>
+            <tr>
+                <td>JOHNY CHENGINIYADAN</td>
+                <td>Executive Director</td>
+            </tr>
+            <tr>
+                <td>ANTONY K V</td>
+                <td>Executive Director</td>
+            </tr>
+            <tr>
+                <td>JAMES MALIYEKKAL</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>BABY VETTIYADAN</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>N J PAULY</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>JEASON PALLIPATT</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>JOLLY VADAKKAN</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>ADV. CLEMANCE THOTTAPILLY</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>M P JOY</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>ANTONY THALIYATH</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>ANTONY P V</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>BENNY SEBASTIAN</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>DEVASSY T L</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>DR THRESIAMMA PHILIP</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>VARGHESE KAMBOLATH</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>M P JOHNSON</td>
+                <td>Director</td>
+            </tr>
+            <tr>
+                <td>ALBERT ANTONY</td>
+                <td>Director</td>
+            </tr>
+            <!-- ... -->
+        </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9MvcJ4W+V1">
+
+    </script>
+    </body>
+    </html>
+    

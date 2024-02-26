@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Tabs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            position: relative;
+        }
+        img{
+            width: 400px;
+            height: 400px;
+        }
+
+        h1, .contact-info {
+            position: relative;
+            z-index: 1; /* Bring the text and contact-info to the front */
+        }
+
+        h1 {
+            color: #e5b300;
+            text-align: center;
+            font-size: 4em;
+        }
+
+        .contact-info {
+            height: 50px; /* Adjust the height as needed */
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for .contact-info */
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            color: #e6b209;
+        }
+
+        .phone {
+            color: #009933;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for the card */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: justify;
+            margin: 0 auto; /* Center the card */
+           max-width: 90%;
+        }
+
+        p {
+            color: #000000;
+            line-height: 1.5;
+            padding: 0; /* Reset padding from the global style */
+        }
+
+        b {
+            font-weight: bold;
+        }
+
+        .profile-image {
+            float: right;
+            margin: 0 0 20px 20px; /* Adjust margin as needed */
+            border-radius: 50%; /* Make the image round */
+            border: 2px solid #e5b300; /* Add a border */
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-info">
+        <p class="email">E-mail: holygrace@gmail.com</p>
+        <p class="phone">Phone No.: 1010102020</p>
+    </div>
+    <img  src="{{ url_for('static', filename='images/CLG.png') }}"  alt="Profile Image" class="profile-image">
+    <h1>HEADING</h1>
+    <div class="card">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quidem delectus facilis laboriosam et blanditiis neque nobis soluta aperiam, officiis voluptate, perferendis quod eligendi sunt porro rem ullam eum, necessitatibus suscipit ducimus incidunt eos dolorem. Modi voluptatibus maiores velit nihil, impedit pariatur corporis odit, laboriosam nam consequuntur delectus corrupti aperiam atque harum nostrum dolor deserunt, consectetur sint ipsam molestiae alias facere ut! Explicabo quam aliquid cupiditate, rerum deleniti et in asperiores eaque, numquam iste temporibus!</p>
+    </div>
+</body>
+</html>

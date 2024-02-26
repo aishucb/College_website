@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Tabs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            position: relative;
+        }
+
+        h1, .contact-info {
+            position: relative;
+            z-index: 1; /* Bring the text and contact-info to the front */
+        }
+
+        h1 {
+            color: #e5b300;
+            text-align: center;
+            font-size: 4em;
+        }
+
+        .contact-info {
+            height: 50px; /* Adjust the height as needed */
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for .contact-info */
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            color: #e6b209;
+        }
+
+        .phone {
+            color: #009933;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for the card */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: justify;
+            margin: 0 auto; /* Center the card */
+           max-width: 90%;
+        }
+
+        p {
+            color: #000000;
+            line-height: 1.5;
+            padding: 0; /* Reset padding from the global style */
+        }
+
+        b {
+            font-weight: bold;
+        }
+        * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      background: #ffffff;
+      color: #000000;
+      font: 12px/1.4 Arial;
+      min-width: 1300px;
+      position: relative;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+
+    /******************************
+	  Navigation Menu
+******************************/
+
+    .horizontal-menu {
+      background-color: #ffffff;
+      color: #000000;
+      display: block;
+      height: 50px;
+      margin: 20px auto;
+      max-width: 1100px;
+      font-family: "Rubik", sans-serif;
+      font-weight: bold;
+    }
+
+
+    /******************************
+					Globals
+******************************/
+
+    .horizontal-menu.plain,
+    .horizontal-menu.dropdown {
+      display: block;
+    }
+
+    .horizontal-menu.plain li,
+    .horizontal-menu.dropdown li {
+      float: left;
+      height: 100%;
+      width: 16.6666%;
+    }
+
+    .horizontal-menu.plain li a,
+    .horizontal-menu.dropdown li>a {
+      display: block;
+      height: 100%;
+      line-height: 50px;
+      text-align: center;
+      transition: background-position 0.2s ease 0s;
+    }
+
+    .horizontal-menu.plain li a,
+    .horizontal-menu.dropdown li>div>a {
+      transition: background-position 0.1s ease 0s;
+    }
+
+    .horizontal-menu.plain li:not(.active):hover a,
+    .horizontal-menu.dropdown li>div>a:hover {
+      color: #000000;
+      background-position: 100% 0;
+    }
+
+    .horizontal-menu.plain li.active a:active,
+    .horizontal-menu.dropdown>div:not(.active):hover>a:active {
+      background: #E5B300;
+      color: #FFF;
+    }
+
+
+    /******************************
+    Plain Horizontal Menu
+******************************/
+
+    .horizontal-menu.plain li a {
+      background: #ffffff linear-gradient(to left, #3B3D3F 50%, #2c2d2f 50%) repeat scroll 0 0 / 200% 100%;
+    }
+
+    .horizontal-menu.plain li.active a {
+      background: #DB3839;
+      color: #FFF;
+    }
+
+
+    /******************************
+Horizontal Menu With Dropdowns
+******************************/
+
+    .horizontal-menu.dropdown li,
+    .horizontal-menu.dropdown li>a {
+      transition: background-color 0.2s ease;
+    }
+
+    .horizontal-menu.dropdown li {
+      position: relative;
+    }
+
+    .horizontal-menu.dropdown li>a {
+      text-transform: uppercase;
+    }
+
+    .horizontal-menu.dropdown li>div {
+      background: #ffffff;
+      display: none;
+      min-width: 200%;
+      overflow: hidden;
+      position: absolute;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .horizontal-menu.dropdown li:not(:first-of-type):not(:last-of-type)>div {
+      left: -50%;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .horizontal-menu.dropdown li:first-of-type>div {
+      left: 0;
+      border-radius: 0 0 3px 0;
+    }
+
+    .horizontal-menu.dropdown li:last-of-type>div {
+      right: 0;
+      border-radius: 0 0 0 3px;
+    }
+
+    .horizontal-menu.dropdown li:hover>div {
+      display: block;
+    }
+
+    .horizontal-menu.dropdown li:hover,
+    .horizontal-menu.dropdown li:hover>div {
+      background: #00000082;
+    }
+
+    .horizontal-menu.dropdown li>div>a {
+      background: #E5B300 linear-gradient(to left, #E5B300 50%, #ffffff 50%) repeat scroll 0 0 / 200% 100%;
+      border-radius: 2px;
+      display: block;
+      float: left;
+      margin: 2%;
+      padding: 8px 10px;
+      text-align: center;
+      transition: background-position 0.2s ease;
+      width: 46%;
+    }
+
+    .horizontal-menu.dropdown li>div>a:hover {
+      background-position: 100% 0;
+      cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+    <nav class="horizontal-menu dropdown" style="margin-left:0px ;max-width: 100%;">
+        <ul>
+          <li class="active">
+            <a>About Us</a>
+            <div>
+              <a href="{{ url_for('my_link') }}">About HGAE</a>
+              <a href="{{ url_for('my_link') }}">Management</a>
+              <a href="{{ url_for('my_link') }}">Our Director</a>
+              <a href="{{ url_for('my_link') }}">Our Principal</a>
+              <a href="{{ url_for('my_link') }}">Why HGAE</a>
+              
+              
+              <a href="{{ url_for('placement') }}">Placement cell</a>
+              
+    
+            </div>
+          </li>
+          <li>
+            <a>Departments</a>
+            <div>
+              <a href="{{ url_for('civil') }}">Civil</a>
+              <a href="{{ url_for('mech') }}">Mechanical</a>
+              <a href="{{ url_for('cse') }}">Computer Science</a>
+              <a href="{{ url_for('eee') }}">EEE</a>
+              <a href="{{ url_for('eee') }}">Civil and Enviornmental</a>
+              <a href="{{ url_for('eee') }}">Artificial intellligence and data science</a>
+              <a href="{{ url_for('eee') }}">ECE</a>
+              <a href="{{ url_for('eee') }}">Computer Science(Data science)</a>
+              <a href="{{ url_for('eee') }}">Computer Science(Cyber security)</a>
+              <a href="{{ url_for('eee') }}">Science and humanities</a>
+            </div>
+          </li>
+          <li>
+            <a>Clubs</a>
+            <div>
+              <a href="{{ url_for('wissen') }}">Wissen</a>
+              <a href="{{ url_for('iedc') }}">Iedc</a>
+    
+              <!-- <a>Link</a>
+              <a>Link</a>
+              <a>Link</a> -->
+            </div>
+          </li>
+          <li>
+            <a href="{{ url_for('facilites') }}">Students corner</a>
+            <div>
+              <a href="{{ url_for('studentcorner') }}">Gallery</a>
+              <a href="{{ url_for('studentcorner') }}">Union</a>
+              <a href="{{ url_for('studentcorner') }}">Club</a>
+              <a href="{{ url_for('studentcorner') }}">PTA</a>
+            </div> 
+          </li>
+          <li>
+            <a>login</a>
+            <div>
+              <a>Students</a>
+              <a>Parents</a>
+              <a>Staff</a>
+            </div>
+                <!-- <div>
+              <a>Link 4</a>
+              <a>Link 5</a>
+              <a>Link 6</a>
+            </div> -->
+          </li>
+          
+          <li>
+            <a>Student support</a>
+            <div>
+              <a>IIC</a>
+              <a>IEEE</a>
+              <a>IEDC</a>
+            </div>
+                <!-- <div>
+              <a>Link 4</a>
+              <a>Link 5</a>
+              <a>Link 6</a>
+            </div> -->
+          </li>
+          <li>
+            <a href="{{ url_for('placement') }}">Placement cell</a>
+            <!-- <div>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+            </div> -->
+          </li>
+          <li>
+            <a href="{{ url_for('facilites') }}">facilites</a>
+            <!-- <div>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+            </div> -->
+          </li>
+          
+          <li>
+            <a>Admissions</a>
+            <!-- <div>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+              <a>Link</a>
+            </div> -->
+          </li>
+          <li>
+            <a>Contact us</a>
+            <!-- <div>
+              <a>Link 1</a>
+              <a>Link 2</a>
+              <a>Link 3</a>
+              <a>Link 4</a>
+              <a>Link 5</a>
+              <a>Link 6</a>
+            </div> -->
+          </li>
+          <li>
+            <a>IQAC</a>
+            <!-- <div>
+              <a>Link 1</a>
+              <a>Link 2</a>
+              <a>Link 3</a>
+              <a>Link 4</a>
+              <a>Link 5</a>
+              <a>Link 6</a>
+            </div> -->
+          </li>
+          
+        </ul>
+      </nav>
+    
+    <div class="card" style="padding-top: 50px;">
+        <h1 style="text-align: center;">HEADING</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quidem delectus facilis laboriosam et blanditiis neque nobis soluta aperiam, officiis voluptate, perferendis quod eligendi sunt porro rem ullam eum, necessitatibus suscipit ducimus incidunt eos dolorem. Modi voluptatibus maiores velit nihil, impedit pariatur corporis odit, laboriosam nam consequuntur delectus corrupti aperiam atque harum nostrum dolor deserunt, consectetur sint ipsam molestiae alias facere ut! Explicabo quam aliquid cupiditate, rerum deleniti et in asperiores eaque, numquam iste temporibus!</p>
+    </div>
+</body>
+</html>

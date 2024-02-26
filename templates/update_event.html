@@ -1,0 +1,94 @@
+<!-- update_event.html -->
+<html>
+    <head>
+        <title>Update event</title>
+        <style>body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        form {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+        
+        input[type="submit"] {
+            background-color: #ffd700;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #ffd700;
+        }
+        </style>
+    </head>
+<h2>Update Event</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <label for="eventTitle">Event Title:</label>
+    <input type="text" name="eventTitle" value="{{ event['eventTitle'] }}" required>
+    <br>
+
+    <label for="eventDate">Event Date:</label>
+    <input type="date" name="eventDate" value="{{ event['eventDate'] }}" required>
+    <br>
+
+    <label for="eventDescription">Event Description:</label>
+    <textarea name="eventDescription" required>{{ event['eventDescription'] }}</textarea>
+    <br>
+
+    <label for="eventPicture">Event Picture:</label>
+    <input type="file" name="eventPicture">
+    <br>
+
+    <img src="{{ url_for('static', filename='UPLOAD_FOLDER/' + event['eventPicture']) }}" alt="Current Event Image"
+         style="height: 200px; width: auto;">
+    <br>
+
+    <input type="submit" value="Update Event">
+</form>
+</html>

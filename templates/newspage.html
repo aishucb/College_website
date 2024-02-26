@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #ffd700;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffd700;
+}
+
+    </style>
+</head>
+<body>
+
+
+
+    <form method="POST" action="/add_call_news" enctype="multipart/form-data">
+        <!-- news Title -->
+        <label for="newsTitle">news Title:</label>
+        <input type="text" id="newsTitle" name="newsTitle" required><br>
+
+        <!-- Date of news -->
+        <label for="newsDate">Date of news:</label>
+        <input type="date" id="newsDate" name="newsDate" required><br>
+
+        <!-- news Description -->
+        <label for="newsDescription">news Description:</label><br>
+        <textarea id="newsDescription" name="newsDescription" rows="4" cols="50" required></textarea><br>
+
+        <!-- Picture Upload -->
+        <label for="newsPicture">Upload Picture:</label>
+        <input type="file" id="newsPicture" name="newsPicture" accept="image/*"><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

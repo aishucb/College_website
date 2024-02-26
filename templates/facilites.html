@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Card View</title>
+  <style>
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    ul {
+        list-style-type: disc;
+            padding: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    .card-container {
+      display: flex;
+      flex-direction: column; /* Arrange cards vertically */
+      align-items: flex-start; /* Align cards to the left */
+      padding: 20px;
+      margin-left: 20px; /* Add margin for better spacing */
+    }
+
+    .card {
+        width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s ease-in-out; /* Smooth box shadow transition */
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hover effect for box shadow */
+    }
+
+    .card-header {
+      background-color: #E5B300;
+      color: #fff;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .card-content {
+      padding: 15px;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out animation */
+    }
+
+    .card.open {
+      height: auto;
+    }
+
+    .card.open .card-content {
+      display: block;
+      opacity: 1;
+    }
+
+    
+#navbar * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #navbar  html {
+      height: 100%;
+    }
+
+    #navbar  body {
+      background: #ffffff;
+      color: #000000;
+      font: 12px/1.4 Arial;
+      min-width: 1300px;
+      position: relative;
+    }
+
+    #navbar  a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    #navbar ul {
+      list-style: none;
+    }
+
+
+    /******************************
+	  Navigation Menu
+******************************/
+
+#navbar .horizontal-menu {
+      background-color: #ffffff;
+      color: #000000;
+      display: block;
+      height: 50px;
+      margin: 20px auto;
+      max-width: 1100px;
+      font-family: "Rubik", sans-serif;
+      font-weight: bold;
+    }
+
+
+    /******************************
+					Globals
+******************************/
+
+#navbar .horizontal-menu.plain,
+#navbar .horizontal-menu.dropdown {
+      display: block;
+    }
+
+    #navbar .horizontal-menu.plain li,
+    #navbar .horizontal-menu.dropdown li {
+      float: left;
+      height: 100%;
+      width: 16.6666%;
+    }
+
+    #navbar .horizontal-menu.plain li a,
+    #navbar .horizontal-menu.dropdown li>a {
+      display: block;
+      height: 100%;
+      line-height: 50px;
+      text-align: center;
+      transition: background-position 0.2s ease 0s;
+    }
+
+    #navbar .horizontal-menu.plain li a,
+    #navbar .horizontal-menu.dropdown li>div>a {
+      transition: background-position 0.1s ease 0s;
+    }
+
+    #navbar .horizontal-menu.plain li:not(.active):hover a,
+    #navbar .horizontal-menu.dropdown li>div>a:hover {
+      color: #000000;
+      background-position: 100% 0;
+    }
+
+    #navbar .horizontal-menu.plain li.active a:active,
+    #navbar .horizontal-menu.dropdown>div:not(.active):hover>a:active {
+      background: #E5B300;
+      color: #FFF;
+    }
+
+
+    /******************************
+    Plain Horizontal Menu
+******************************/
+
+    #navbar .horizontal-menu.plain li a {
+      background: #ffffff linear-gradient(to left, #3B3D3F 50%, #2c2d2f 50%) repeat scroll 0 0 / 200% 100%;
+    }
+
+    #navbar .horizontal-menu.plain li.active a {
+      background: #DB3839;
+      color: #FFF;
+    }
+
+
+    /******************************
+Horizontal Menu With Dropdowns
+******************************/
+
+    #navbar .horizontal-menu.dropdown li,
+    #navbar .horizontal-menu.dropdown li>a {
+      transition: background-color 0.2s ease;
+    }
+
+    #navbar .horizontal-menu.dropdown li {
+      position: relative;
+    }
+
+    #navbar .horizontal-menu.dropdown li>a {
+      text-transform: uppercase;
+    }
+
+    #navbar .horizontal-menu.dropdown li>div {
+      background: #ffffff;
+      display: none;
+      min-width: 200%;
+      overflow: hidden;
+      position: absolute;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    #navbar .horizontal-menu.dropdown li:not(:first-of-type):not(:last-of-type)>div {
+      left: -50%;
+      border-radius: 0 0 3px 3px;
+    }
+
+    #navbar .horizontal-menu.dropdown li:first-of-type>div {
+      left: 0;
+      border-radius: 0 0 3px 0;
+    }
+
+    #navbar .horizontal-menu.dropdown li:last-of-type>div {
+      right: 0;
+      border-radius: 0 0 0 3px;
+    }
+
+    #navbar .horizontal-menu.dropdown li:hover>div {
+      display: block;
+    }
+
+    #navbar .horizontal-menu.dropdown li:hover,
+    #navbar .horizontal-menu.dropdown li:hover>div {
+      background: #00000082;
+    }
+
+    #navbar .horizontal-menu.dropdown li>div>a {
+      background: #E5B300 linear-gradient(to left, #E5B300 50%, #ffffff 50%) repeat scroll 0 0 / 200% 100%;
+      border-radius: 2px;
+      display: block;
+      float: left;
+      margin: 2%;
+      padding: 8px 10px;
+      text-align: center;
+      transition: background-position 0.2s ease;
+      width: 46%;
+    }
+
+    #navbar .horizontal-menu.dropdown li>div>a:hover {
+      background-position: 100% 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <nav class="horizontal-menu dropdown">
+      <ul>
+        <li class="active">
+          <a>Miscelleneous</a>
+          <div>
+            <a href="{{ url_for('my_link') }}">Management</a>
+            <a href="{{ url_for('facilites') }}">facilites</a>
+            <a href="{{ url_for('studentcorner') }}">studentcorner</a>
+            <a href="{{ url_for('placement') }}">Placement cell</a>
+            <a>Link</a>
+            <a>Link</a>
+  
+          </div>
+        </li>
+        <li>
+          <a>Courses</a>
+          <div>
+            <a href="{{ url_for('civil') }}">Civil</a>
+            <a href="{{ url_for('mech') }}">Mechanical</a>
+            <a href="{{ url_for('cse') }}">Computer Science</a>
+            <a href="{{ url_for('eee') }}">EEE</a>
+            <a>Link</a>
+            <a>Link</a>
+          </div>
+        </li>
+        <li>
+          <a>Clubs</a>
+          <div>
+            <a href="{{ url_for('wissen') }}">Wissen</a>
+            <a href="{{ url_for('iedc') }}">Iedc</a>
+  
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+          </div>
+        </li>
+        <li>
+          <a>Item 4</a>
+          <div>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+          </div>
+        </li>
+        <li>
+          <a>Item 5</a>
+          <div>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+          </div>
+        </li>
+        <li>
+          <a>Item 6</a>
+          <div>
+            <a>Link 1</a>
+            <a>Link 2</a>
+            <a>Link 3</a>
+            <a>Link 4</a>
+            <a>Link 5</a>
+            <a>Link 6</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+<div class="card-container">
+  <div class="card" id="card1">
+    <div class="card-header" onclick="toggleCardView('card1')">
+        INFRASTRUCTURE
+    </div>
+    <div class="card-content">
+        <ul>
+            <li>Serene lush green campus spread over acres.</li>
+            <li>Excellent Infrastructure and well-equipped laboratories and workshops.</li>
+            <li>Computer Labs having more than 400 computers, all laned and connected with Internet facilities and available to students without interruption; checked with Fire-Wall Security System.</li>
+            <li>Student counselling and guidance by experienced faculty.</li>
+            <li>Spacious lecture halls with modern teaching aids.</li>
+            <li>Conference hall with a seating capacity of 300.</li>
+            <li>Comprehensive library with about 20,000 books, major national and international journals, periodicals, CDs, Multimedia Tools & E-Journals such as IEEE & ASME.</li>
+            <li>Ample space for indoor and outdoor games.</li>
+            <li>On Campus Hostel for boys and girls.</li>
+            <li>Excellent residential facilities for staff members.</li>
+            <li>24X7 security.</li>
+            <li>Encouragement to co-curricular and extra-curricular activities.</li>
+            <li>Regular interaction of students with the corporate.</li>
+            <li>Wi-Fi Enabled Campus.</li>
+            <li>Academic performance of the students is periodically reported to their parents.</li>
+            <li>Regular industry & institution interaction.</li>
+            <li>Training & Placement opportunity for all.</li>
+            <li>Awards for performing students.</li>
+            <li>Confidence building, adventurous exercises like Rappelling, Cave Exploration, Mountaineering, etc.</li>
+            <li>Full-fledged Personality Development Department, Academic & Research Department, and Innovative Creations Department.</li>
+            <li>Opportunities offered to every student to perform stage programmes a year.</li>
+            <li>30% class time is set apart for co-scholastic activities.</li>
+            <li>Expert lectures on selected textual portions and interactive sessions with eminent personalities.</li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="card" id="card2">
+    <div class="card-header" onclick="toggleCardView('card2')">
+        LIBRARY AND INFORMATION CENTRE
+    </div>
+    <div class="card-content">
+        The library being the most important part of the education system is the hub of all the activities in the Campus. Much care is taken to provide the best of the best facilities in the library to motivate the students and the faculty members to make use of the facilities. Library consist of central library and departmental libraries which collectively support the educational needs of all the programme. The library and information centre of the college has kept pace with emerging challenges. The library stretches over 500 square meters with the capacity to accommodate 200 students at a time and it is enabled with Wi-Fi technology.
+    </div>
+  </div>
+  <div class="card" id="card3">
+    <div class="card-header" onclick="toggleCardView('card3')">
+        HOSTEL
+    </div>
+    <div class="card-content">
+        The concept of creating a ‘home away from home’ underlines the care taken to make the students comfortable in the hostels. Newly built modern structure with spacious rooms caters to the residential needs of the boarders staying away from their homes. The primary purpose of the hostel is to provide an environment that is conducive for concentrated study and cultivate a life style of discipline and co-operation. The Campus has a separate hostel section for girls and boys located within the premises under the management of Hostel Committee. All these residential facilities come to the students at a very economical rate, minimizing the financial burden on the parents.
+
+Dedicated wardens and supervisory staff along with faculty members oversee the welfare of the students. Discipline is practiced through well-maintained timings and study hours with strict vigilance exercised with regard to visitors. The hostel and the college premises are completely free from ragging. A warm and pleasant environment in the hostel ensures that the students interact among themselves freely, learn to extent mutual support when required and develop close friendly relation.
+
+Hostel Fees (per month)
+Hostel Menu
+North Indians will be served special dishes, Vegetarians will be served vegetarian dishes.   </div>
+  </div>
+  <div class="card" id="card4">
+    <div class="card-header" onclick="toggleCardView('card4')">
+        TRANSPORTATION
+    </div>
+    <div class="card-content">
+        Holy Grace educational institution runs its own transport fleet catering service to students who commute daily. The busses run on all working days at different route. The students are to commute only by authorized school vehicles so as to ensure safety and security of our students.    </div>
+  </div>
+  <div class="card" id="card5">
+    <div class="card-header" onclick="toggleCardView('card5')">
+        MEDICAL CARE
+    </div>
+    <div class="card-content">
+        The Medical Clinic/ Infirmary is equipped with all necessary medical equipment, pharmacy and an in-patient ward with beds. A full time Medical Practitioner, Dr. Diljith K P is available from 9.am to 4.30pm. Dr. K.T. Antony (Ophthalmologist) is also available twice a week. The services of a qualified Nurse, Pharmacist and Lab Technician are ensured.    </div>
+  </div>
+  <div class="card" id="card6">
+    <div class="card-header" onclick="toggleCardView('card6')">
+        SPORTS
+    </div>
+    <div class="card-content">
+        <h2>SWIMMING ACADEMY</h2>
+        <p>It is a new initiative of Holy Grace to equip students with a “must skill” for all. There are exclusive professional coaches available for boys and girls separately. The 25mtr swimming pool is another feather to the cap of Holy Grace having innumerable laurels.</p>
+    
+        <h2>COMPULSORY CONFIDENCE BUILDING EXERCISES</h2>
+        <p>The adventurous exercises like Rappelling, Cave Exploration, Mountaineering, Horse riding, Shooting etc. are given to the students. Outbound training is done under the safe and secure guidance of experienced Airforce officers. Holy Grace is the only institution in South India which offers such programmes.</p>
+    
+        <h2>SHOOTING</h2>
+        <p>Shooting as a sporting event is promoted on the campus. The Shooting Club with 250 members is under the guidance of an exclusive Coach from the Indian Air Force.</p>
+    
+        <h2>HORSE RIDING</h2>
+        <p>Horse Riding, the privilege is made available to GRACEANS. An exclusive Trainer is appointed for effective Training Sessions. The Boarders get a lot of opportunities beyond regular class hours.</p>
+        </div>
+  </div>
+  <div class="card" id="card7">
+    <div class="card-header" onclick="toggleCardView('card7')">
+        CORE FACILITIES
+    </div>
+    <div class="card-content">
+        <h2>IDEA HUB</h2>
+        <p>A new initiative introduced in the campus, ‘INDUSTRY 4.0’ directly connects the industry to the campus. Under this initiative, a concept of automation is also introduced in the campus. Start-up companies are also encouraged under ‘INDUSTRY 4.0’ along with research based on Artificial Intelligence (AI), Machine Learning (ML), and Internet of Things (IOT).</p>
+    
+        <h2>OPEN AIR AUDITORIUM</h2>
+        <p>The open-air Auditorium with a seating capacity of 1000 students is situated in the Holy Grace Campus. The Auditorium is for all its graduation ceremonies, gatherings, lectures, and activities. Students’ programmes and performances are also held here as this auditorium is well-equipped with excellent acoustics. Cultural activities add color to the college curriculum and bring out the hidden talent of the student.</p>
+    
+        <h2>COLLEGE CANTEEN</h2>
+        <p>Part of the secret of success in life is to eat what you like and let the food fight it out inside. The management is happy to provide the Graceans with an aesthetically built canteen in the campus, which is now maintained and managed by experienced staff. It provides a variety of hygienically prepared delicious South Indian food, North Indian food, Vegetarian, Non-Vegetarian, Chats and fresh fruit juice.</p>
+    
+        <h2>SEMINAR HALL</h2>
+        <ul>
+            <li>Air-conditioned Seminar Hall with the capacity of 200 seating on the first floor</li>
+            <li>State-of-the-art infrastructure facilities to foster effective teaching and learning process</li>
+            <li>Conducting students activities like workshops and presentations.</li>
+            <li>Dedicated support team on hand</li>
+            <li>High-Speed internet access with Wi-Fi connectivity</li>
+        </ul>
+    
+        <h2>MACHINE INTELLIGENCE RESEARCH LAB</h2>
+        <p>Holy Grace Academy of Engineering is the first Engineering College in Kerala to introduce Microsoft training platform in the campus, which enables the students to become a Microsoft certified Engineer. Holy Grace is the official in-campus research hub of ‘Machine Intelligence Research Labs’ (MIR) in India as well. MIR Labs is based in the USA and are global experts in Artificial Intelligence (AI) and Data Science (DS). After successful completion of the courses offered by MIR labs, students can pursue their higher studies (MS/PhD/PDF) in foreign Universities with 100% scholarship.</p>
+    
+        <h2>ROBOTIC INCUBATION LAB</h2>
+        <p>The College also provides an integrated MBA with B.Tech regular certification. The in-campus Robotic Incubation Lab with certification programs is also offered here. The in-campus industry incubation facilities for B.Tech students are also going on in parallel with other academic programs.</p>
+        </div>
+  </div>
+
+  <!-- Add more cards as needed -->
+</div>
+
+<script>
+  function toggleCardView(cardId) {
+    var card = document.getElementById(cardId);
+    card.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

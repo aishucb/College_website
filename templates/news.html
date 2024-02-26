@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #dashboard {
+            display: flex;
+        }
+
+        #sidebar {
+            width: 200px;
+            background-color: #ffd700;
+            padding: 40px;
+            color: #fff;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .dashboard-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #030202;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .dashboard-button:hover {
+            background-color: #f9f3ad;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjusted styles for the news data */
+        .news-info {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+
+    <div id="dashboard">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <a href="/index" class="dashboard-button">Dashboard</a>
+            <a href="/events" class="dashboard-button">Events</a>
+            <a href="/news" class="dashboard-button">News</a>
+        </div>
+
+        <!-- Content -->
+        <div id="content">
+            <a href="/news_add" class="dashboard-button">Add New news</a>
+            {% for news in news_data %}
+            <div class="card">
+                <!-- newss.html -->
+
+                <!-- ... your existing HTML and CSS ... -->
+
+
+
+                <div>
+                    <p>Date: {{ news['newsDate'] }}</p>
+                    <p>Title: {{ news['newsTitle'] }}</p>
+                    <p>Description: {{ news['newsDescription'] }}</p>
+                   
+                    <img src="{{ url_for('static', filename='UPLOAD_FOLDER/' + news['newsPicture']) }}" alt="news Image" style="height: 200px;width: auto;">
+                </div>
+
+                <a href="{{ url_for('update_news', news_id=news['_id']) }}" class="dashboard-button"> Update</a>
+    <a href="{{ url_for('delete_news', news_id=news['_id']) }}" class="dashboard-button">Delete</a>
+
+            </div>
+
+            
+
+
+
+
+       
+        {% endfor %}
+    </div>
+    </div>
+
+</body>
+
+</html>
