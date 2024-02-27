@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Tabs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            position: relative;
+            margin-right: 10%;
+        }
+        img{
+            width: 400px;
+            height: 400px;
+        }
+
+        h1, .contact-info {
+            position: relative;
+            z-index: 1; /* Bring the text and contact-info to the front */
+        }
+
+        h1 {
+            color: #e5b300;
+            text-align: center;
+            font-size: 4em;
+        }
+
+        .contact-info {
+            height: 50px; /* Adjust the height as needed */
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for .contact-info */
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            color: #e6b209;
+        }
+
+        .phone {
+            color: #009933;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for the card */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: justify;
+            margin: 0 auto; /* Center the card */
+           max-width: 70%;
+        }
+
+        p {
+            color: #000000;
+            line-height: 1.5;
+            padding: 0; /* Reset padding from the global style */
+        }
+
+        b {
+            font-weight: bold;
+        }
+
+        .profile-image {
+            float: right;
+            margin: 0 0 20px 20px; /* Adjust margin as needed */
+            border-radius: 50%; /* Make the image round */
+            border: 2px solid #e5b300; /* Add a border */
+        }
+    </style>
+</head>
+<body>
+
+    <img  src="{{ url_for('static', filename='images/avatar.jpg') }}"  alt="Profile Image" class="profile-image">
+    <h1>Secretary'S Message</h1>
+    <div class="card">
+<p style="color: #494b35e8;">Dear Parents,
+    Welcome to an educational experience with a difference. The Holy Grace Academy of Engineering has unique strengths that no other institution offers. Our focus is on imparting professionalism as well as a holistic learning experience to the students so that they not only become world class professionals, but also ideal citizens who uphold Indian cultural values. Our confidence building exercises and extracurricular activities are not only designed to offer entertainment, but also to develop well rounded personalities with the much needed social skills that will hold them in good stead when they start interacting with the corporate world.
+    Holy Grace Academy of Engineering offers an integrated and academically structured and industry specific training module that gives students the vital edge for gaining all round excellence. The students are offered the best of opportunities in the form of highly advanced courses, eminent faculty members, well-equipped laboratory, library, hostels and immense facilities to excel in research and development.
+    I assure you of our constant support, perseverance and rigorous training to fulfil the enormous responsibility that you have entrusted on us.
+    
+    
+    
+    <br><br><span style="font-weight: bold;color: #000000;">Benny John Aynikkal </span>
+    <br><span style="font-weight: lighter;">Secretary,HGAE </span>
+    </p>
+    </div>
+</body>
+</html>

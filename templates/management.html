@@ -1,454 +1,524 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Management</title>
-    <style>
-        body{
-            font-family: 'Poppins', sans-serif;
-        }
-        h1 {
-            color: #F7DF1E;
-            text-align: center;
-            font-size: 56px;
-            margin-top: 20px;
-        }
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
 
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
-        }
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: rowFadeInUp 1s ease-out forwards;
-        }
+body {
+  margin: 0;
+}
 
-        th {
-            background-color: #FFFADD;
-        }
+.wk-desk-1 {
+  width: 8.333333%;
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.wk-desk-2 {
+  width: 16.666667%;
+}
 
-        @keyframes rowFadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
+.wk-desk-3 {
+  width: 25%;
+}
+
+.wk-desk-4 {
+  width: 33.333333%;
+}
+
+.wk-desk-5 {
+  width: 41.666667%;
+}
+
+.wk-desk-6 {
+  width: 50%;
+}
+
+.wk-desk-7 {
+  width: 58.333333%;
+}
+
+.wk-desk-8 {
+  width: 66.666667%;
+}
+
+.wk-desk-9 {
+  width: 75%;
+}
+
+.wk-desk-10 {
+  width: 83.333333%;
+}
+
+.wk-desk-11 {
+  width: 91.666667%;
+}
+
+.wk-desk-12 {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .wk-ipadp-1 {
+    width: 8.333333%;
+  }
+
+  .wk-ipadp-2 {
+    width: 16.666667%;
+  }
+
+  .wk-ipadp-3 {
+    width: 25%;
+  }
+
+  .wk-ipadp-4 {
+    width: 33.333333%;
+  }
+
+  .wk-ipadp-5 {
+    width: 41.666667%;
+  }
+
+  .wk-ipadp-6 {
+    width: 50%;
+  }
+
+  .wk-ipadp-7 {
+    width: 58.333333%;
+  }
+
+  .wk-ipadp-8 {
+    width: 66.666667%;
+  }
+
+  .wk-ipadp-9 {
+    width: 75%;
+  }
+
+  .wk-ipadp-10 {
+    width: 83.333333%;
+  }
+
+  .wk-ipadp-11 {
+    width: 91.666667%;
+  }
+
+  .wk-ipadp-12 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .wk-tab-1 {
+    width: 8.333333%;
+  }
+
+  .wk-tab-2 {
+    width: 16.666667%;
+  }
+
+  .wk-tab-3 {
+    width: 25%;
+  }
+
+  .wk-tab-4 {
+    width: 33.333333%;
+  }
+
+  .wk-tab-5 {
+    width: 41.666667%;
+  }
+
+  .wk-tab-6 {
+    width: 50%;
+  }
+
+  .wk-tab-7 {
+    width: 58.333333%;
+  }
+
+  .wk-tab-8 {
+    width: 66.666667%;
+  }
+
+  .wk-tab-9 {
+    width: 75%;
+  }
+
+  .wk-tab-10 {
+    width: 83.333333%;
+  }
+
+  .wk-tab-11 {
+    width: 91.666667%;
+  }
+
+  .wk-tab-12 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .wk-mobile-1 {
+    width: 8.333333%;
+  }
+
+  .wk-mobile-2 {
+    width: 16.666667%;
+  }
+
+  .wk-mobile-3 {
+    width: 25%;
+  }
+
+  .wk-mobile-4 {
+    width: 33.333333%;
+  }
+
+  .wk-mobile-5 {
+    width: 41.666667%;
+  }
+
+  .wk-mobile-6 {
+    width: 50%;
+  }
+
+  .wk-mobile-7 {
+    width: 58.333333%;
+  }
+
+  .wk-mobile-8 {
+    width: 66.666667%;
+  }
+
+  .wk-mobile-9 {
+    width: 75%;
+  }
+
+  .wk-mobile-10 {
+    width: 83.333333%;
+  }
+
+  .wk-mobile-11 {
+    width: 91.666667%;
+  }
+
+  .wk-mobile-12 {
+    width: 100%;
+  }
+}
 * {
-      box-sizing: border-box;
-      margin: 0px;
-      padding: 0px;
-    }
+  font-family: Nunito, sans-serif;
+}
 
-    html {
-      height: 100%;
-    }
+.text-blk {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  line-height: 25px;
+}
 
-    body {
-      background: #ffffff;
-      color: #000000;
-      font: 12px/1.4 Arial;
-      min-width: 1300px;
-      position: relative;
-    }
+.responsive-container-block {
+  min-height: 75px;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  justify-content: flex-start;
+}
 
-    a {
-      color: #000000;
-      text-decoration: none;
-    }
+.container-block {
+  min-height: 75px;
+  height: fit-content;
+  width: 100%;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  display: block;
+}
 
-    ul {
-      list-style: none;
-    }
+.responsive-cell-block {
+  min-height: 75px;
+}
 
+.container {
+  max-width: 1380px;
+  margin-top: 80px;
+  margin-right: auto;
+  margin-bottom: 80px;
+  margin-left: auto;
+  padding-top: 0px;
+  padding-right: 30px;
+  padding-bottom: 0px;
+  padding-left: 30px;
+}
 
-    /******************************
-	  Navigation Menu
-******************************/
+.team-head-text {
+  font-size: 48px;
+  line-height: 50px;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 70px;
+  margin-left: 0px;
+}
 
-    .horizontal-menu {
-      background-color: #ffffff;
-      color: #000000;
-      display: block;
-      height: 50px;
-      margin: 20px auto;
-      max-width: 1100px;
-      font-family: "Rubik", sans-serif;
-      font-weight: bold;
-    }
+.name {
+  font-size: 18px;
+  margin-top: 11px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  font-weight: 700;
+}
 
+.position {
+  margin-top: 5px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
 
-    /******************************
-					Globals
-******************************/
+.team-card-container {
+  width: 263px;
+  margin-top: 0px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+}
 
-    .horizontal-menu.plain,
-    .horizontal-menu.dropdown {
-      display: block;
-    }
+.teamcard-container {
+  justify-content: space-evenly;
+}
 
-    .horizontal-menu.plain li,
-    .horizontal-menu.dropdown li {
-      float: left;
-      height: 100%;
-      width: 16.6666%;
-    }
+.team-img-wrapper {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
 
-    .horizontal-menu.plain li a,
-    .horizontal-menu.dropdown li>a {
-      display: block;
-      height: 100%;
-      line-height: 50px;
-      text-align: center;
-      transition: background-position 0.2s ease 0s;
-    }
+.team-img {
+  max-width: 100%;
+}
 
-    .horizontal-menu.plain li a,
-    .horizontal-menu.dropdown li>div>a {
-      transition: background-position 0.1s ease 0s;
-    }
+@media (max-width: 500px) {
+  .team-card-container {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    width: 100%;
+  }
 
-    .horizontal-menu.plain li:not(.active):hover a,
-    .horizontal-menu.dropdown li>div>a:hover {
-      color: #000000;
-      background-position: 100% 0;
-    }
-
-    .horizontal-menu.plain li.active a:active,
-    .horizontal-menu.dropdown>div:not(.active):hover>a:active {
-      background: #E5B300;
-      color: #FFF;
-    }
-
-
-    /******************************
-    Plain Horizontal Menu
-******************************/
-
-    .horizontal-menu.plain li a {
-      background: #ffffff linear-gradient(to left, #3B3D3F 50%, #2c2d2f 50%) repeat scroll 0 0 / 200% 100%;
-    }
-
-    .horizontal-menu.plain li.active a {
-      background: #DB3839;
-      color: #FFF;
-    }
-
-
-    /******************************
-Horizontal Menu With Dropdowns
-******************************/
-
-    .horizontal-menu.dropdown li,
-    .horizontal-menu.dropdown li>a {
-      transition: background-color 0.2s ease;
-    }
-
-    .horizontal-menu.dropdown li {
-      position: relative;
-    }
-
-    .horizontal-menu.dropdown li>a {
-      text-transform: uppercase;
-    }
-
-    .horizontal-menu.dropdown li>div {
-      background: #ffffff;
-      display: none;
-      min-width: 200%;
-      overflow: hidden;
-      position: absolute;
-      padding: 10px;
-      z-index: 999;
-    }
-
-    .horizontal-menu.dropdown li:not(:first-of-type):not(:last-of-type)>div {
-      left: -50%;
-      border-radius: 0 0 3px 3px;
-    }
-
-    .horizontal-menu.dropdown li:first-of-type>div {
-      left: 0;
-      border-radius: 0 0 3px 0;
-    }
-
-    .horizontal-menu.dropdown li:last-of-type>div {
-      right: 0;
-      border-radius: 0 0 0 3px;
-    }
-
-    .horizontal-menu.dropdown li:hover>div {
-      display: block;
-    }
-
-    .horizontal-menu.dropdown li:hover,
-    .horizontal-menu.dropdown li:hover>div {
-      background: #00000082;
-    }
-
-    .horizontal-menu.dropdown li>div>a {
-      background: #E5B300 linear-gradient(to left, #E5B300 50%, #ffffff 50%) repeat scroll 0 0 / 200% 100%;
-      border-radius: 2px;
-      display: block;
-      float: left;
-      margin: 2%;
-      padding: 8px 10px;
-      text-align: center;
-      transition: background-position 0.2s ease;
-      width: 46%;
-    }
-
-    .horizontal-menu.dropdown li>div>a:hover {
-      background-position: 100% 0;
-      cursor: pointer;
-    }
-    </style>
-</head>
-<body>
-    <nav class="horizontal-menu dropdown">
-        <ul>
-          <li class="active">
-            <a>Miscelleneous</a>
-            <div>
-              <a href="{{ url_for('my_link') }}">Management</a>
-              <a href="{{ url_for('facilites') }}">facilites</a>
-              <a href="{{ url_for('studentcorner') }}">studentcorner</a>
-              <a href="{{ url_for('placement') }}">Placement cell</a>
-              <a>Link</a>
-              <a>Link</a>
-    
-            </div>
-          </li>
-          <li>
-            <a>Courses</a>
-            <div>
-              <a href="{{ url_for('civil') }}">Civil</a>
-              <a href="{{ url_for('mech') }}">Mechanical</a>
-              <a href="{{ url_for('cse') }}">Computer Science</a>
-              <a href="{{ url_for('eee') }}">EEE</a>
-              <a>Link</a>
-              <a>Link</a>
-            </div>
-          </li>
-          <li>
-            <a>Clubs</a>
-            <div>
-              <a href="{{ url_for('wissen') }}">Wissen</a>
-              <a href="{{ url_for('iedc') }}">Iedc</a>
-    
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-            </div>
-          </li>
-          <li>
-            <a>Item 4</a>
-            <div>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-            </div>
-          </li>
-          <li>
-            <a>Item 5</a>
-            <div>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-              <a>Link</a>
-            </div>
-          </li>
-          <li>
-            <a>Item 6</a>
-            <div>
-              <a>Link 1</a>
-              <a>Link 2</a>
-              <a>Link 3</a>
-              <a>Link 4</a>
-              <a>Link 5</a>
-              <a>Link 6</a>
-            </div>
-          </li>
-        </ul>
-      </nav>    
-    
-    
-    <h1>ORGANIZATION DIRECTORS</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Directors Name</th>
-                <th>Designation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>SANY EDATTUKARAN</td>
-                <td>Group Chairman</td>
-            </tr>
-            <!-- Add other rows as per the provided data -->
-            <tr>
-                <td>BENNY JOHN</td>
-                <td>General Secretary</td>
-            </tr>
-            <tr>
-                <td>VAKKACHAN</td>
-                <td>Chairman - MBA</td>
-            </tr>
-            <tr>
-                <td>JOSE KANNAMPILLY</td>
-                <td>Chairman - Pharmacy</td>
-            </tr>
-            <tr>
-                <td>PRINCE PADIKKALA</td>
-                <td>Chairman - Engineering</td>
-            </tr>
-            <tr>
-                <td>C V JOSE</td>
-                <td>Finance Director</td>
-            </tr>
-            <tr>
-                <td>ANTONY MALIEKKAL</td>
-                <td>Secretary - Engineering</td>
-            </tr>
-            <tr>
-                <td>JOSE ELINJIPILLY</td>
-                <td>Secretary - MBA</td>
-            </tr>
-            <tr>
-                <td>BENNY K T</td>
-                <td>Secretary - Pharmacy</td>
-            </tr>
-            <tr>
-                <td>ROBINSON</td>
-                <td>Executive Director - Auditor</td>
-            </tr>
-            <tr>
-                <td>Justin</td>
-                <td>Executive Director - Auditor</td>
-            </tr>
-            <tr>
-                <td>DENNY JOHN</td>
-                <td>Executive Director - Auditor</td>
-            </tr>
-            <tr>
-                <td>JOHN THALIYATH</td>
-                <td>Executive Director</td>
-            </tr>
-            <tr>
-                <td>JOHNY CHENGINIYADAN</td>
-                <td>Executive Director</td>
-            </tr>
-            <tr>
-                <td>ANTONY K V</td>
-                <td>Executive Director</td>
-            </tr>
-            <tr>
-                <td>JAMES MALIYEKKAL</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>BABY VETTIYADAN</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>N J PAULY</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>JEASON PALLIPATT</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>JOLLY VADAKKAN</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>ADV. CLEMANCE THOTTAPILLY</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>M P JOY</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>ANTONY THALIYATH</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>ANTONY P V</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>BENNY SEBASTIAN</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>DEVASSY T L</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>DR THRESIAMMA PHILIP</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>VARGHESE KAMBOLATH</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>M P JOHNSON</td>
-                <td>Director</td>
-            </tr>
-            <tr>
-                <td>ALBERT ANTONY</td>
-                <td>Director</td>
-            </tr>
-            <!-- ... -->
-        </tbody>
-    </table>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX6" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9MvcJ4W+V1">
-
-    </script>
+  .team-img {
+    width: 100%;
+  }
+}
+        </style>
+    </head>
+    <body>
+        <div id="gallery">
+            <div class="container-block container">
+                <p class="text-blk team-head-text">
+                  Our Management
+                </p>
+                <div class="responsive-container-block teamcard-container">
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
+                    <div class="team-card">
+                      <div class="team-img-wrapper">
+                        <img class="team-img" src="{{ url_for('static', filename='images/avatar.jpg') }}">
+                      </div>
+                      <div class="team-card-content">
+                        <p class="text-blk name">
+                          Roger Lubin
+                        </p>
+                        <p class="text-blk position">
+                          CEO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
     </body>
-    </html>
-    
+</html>

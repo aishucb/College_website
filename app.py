@@ -55,6 +55,14 @@ def hello_world():
 def my_link():
     return render_template('management.html')
 
+@app.route('/union')
+def union():
+    return render_template('union.html')
+
+@app.route('/contactus')
+def contactus():
+    return render_template('contact.html')
+
 @app.route('/facilites')
 def facilites():
     return render_template('facilites.html')
@@ -95,9 +103,21 @@ def placement():
 def abouthg():
     return render_template('abouthg.html')
 
+@app.route('/whyhgae')
+def whyhgae():
+    return render_template('whyhgae.html')
+
 @app.route('/aboutprincipal')
 def aboutprincipal():
     return render_template('aboutprincipal.html')
+
+@app.route('/secretary')
+def secretary():
+    return render_template('director.html')
+
+@app.route('/chairman')
+def chairman():
+    return render_template('chairman.html')
 
 users_collection = db['users']  # Create a 'users' collection for storing user data
 

@@ -11,6 +11,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-SFVKjFOKxyiX+ro1FamZWP4LuJNKkC0Pxjys4T5blLQDdNRaU51wPo4h0mVN5U0y+sN4DxQul/XgA8QetjeaRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Rubik:wght@300&family=Zilla+Slab:ital,wght@0,400;1,300&display=swap"
     rel="stylesheet">
@@ -1012,6 +1014,7 @@ Generic layout (demo looks)
 #vision .options .option:not(.active) {
     flex-grow: 1;
     border-radius: 30px;
+    
 }
 
 #vision .options .option:not(.active) .shadow {
@@ -1134,6 +1137,269 @@ Generic layout (demo looks)
     font-weight: bold;
 }
 
+
+/*seconf footer*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+#footer * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+#footer body {
+  min-height: 100vh;
+  width: 100%; 
+  background: #eeeceb;
+}
+#footer footer {
+  background:#2e2748;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+#footer footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 125px;
+  height: 1px;
+  width: 100%;
+  background: #2e2748;
+}
+/* CSS for logo details */
+#footer .logo-details img {
+  max-width: 100%; /* Ensure the image does not exceed the container width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure proper block-level display */
+  width: 175px;
+  margin-right: 30px;
+}
+
+#footer footer .content {
+  max-width: 1250px;
+  margin: auto;
+  padding: 30px 40px 40px 40px;
+}
+#footer footer .content .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+#footer .content .top .logo-details {
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+#footer .content .top .media-icons {
+  display: flex;
+}
+#footer .content .top .media-icons a {
+  height: 40px;
+  width: 40px;
+  margin: 0 8px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+#footer .top .media-icons a:nth-child(1) {
+  background: #4267b2;
+}
+#footer .top .media-icons a:nth-child(1):hover {
+  color: #4267b2;
+  background: #fff;
+}
+#footer .top .media-icons a:nth-child(2) {
+  background: #000;
+}
+#footer .top .media-icons a:nth-child(2):hover {
+  color: #000;
+  background: #fff;
+}
+#footer .top .media-icons a:nth-child(3) {
+  background: #e1306c;
+}
+#footer .top .media-icons a:nth-child(3):hover {
+  color: #e1306c;
+  background: #fff;
+}
+#footer .top .media-icons a:nth-child(4) {
+  background: #0077b5;
+}
+#footer .top .media-icons a:nth-child(4):hover {
+  color: #0077b5;
+  background: #fff;
+}
+#footer .top .media-icons a:nth-child(5) {
+  background: #ff0000;
+}
+#footer .top .media-icons a:nth-child(5):hover {
+  color: #ff0000;
+  background: #fff; 
+}
+#footer footer .content .link-boxes {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#footer footer .content .link-boxes .box {
+  width: calc(100% / 5 - 10px);
+}
+#footer .content .link-boxes .box .link_name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  position: relative;
+}
+#footer .link-boxes .box .link_name::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 35px;
+  background: #fff;
+}
+#footer .content .link-boxes .box li {
+  margin: 6px 0;
+  list-style: none;
+}
+#footer .content .link-boxes .box li a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+#footer .content .link-boxes .box li a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+#footer .content .link-boxes .input-box {
+  margin-right: 55px;
+}
+#footer .link-boxes .input-box input {
+  height: 40px;
+  width: calc(100% + 55px);
+  outline: none;
+  border: 2px solid #2e2748;
+  background: #eaeaea;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #000000;
+  margin-top: 5px;
+}
+#footer .link-boxes .input-box input::placeholder {
+  color: #2e2748;
+  font-size: 16px;
+}
+#footer .link-boxes .input-box input[type="button"] {
+  background: #fff;
+  color: #3824d2;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 4px 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+#footer .input-box input[type="button"]:hover {
+  opacity: 1;
+}
+#footer footer .bottom-details {
+  width: 100%;
+  background: #2e2748;
+}
+footer .bottom-details .bottom_text {
+    /* max-width: 1250px; */
+    /* margin: auto; */
+    padding: 20px 40px;
+    flex-wrap: nowrap;
+    /* margin-left: 100px; */
+    display: flex;
+    justify-content: space-between;
+    /* width: inherit; */
+}
+#footer .bottom-details .bottom_text span.copyright{
+  text-align: center;
+}
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a {
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.bottom-details .bottom_text a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.bottom-details .bottom_text p a {
+  margin-left: 230px;
+  
+}
+@media (max-width: 900px) {
+  footer .content .link-boxes {
+    flex-wrap: wrap;
+  }
+  footer .content .link-boxes .input-box {
+    width: 40%;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 700px) {
+  footer {
+    position: relative;
+  }
+  .content .top .logo-details {
+    font-size: 26px;
+  }
+  .content .top .media-icons a {
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+    line-height: 35px;
+  }
+  footer .content .link-boxes .box {
+    width: calc(100% / 3 - 10px);
+  }
+  footer .content .link-boxes .input-box {
+    width: 60%;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a {
+    font-size: 12px;
+  }
+}
+@media (max-width: 520px) {
+  footer::before {
+    top: 145px;
+  }
+  footer .content .top {
+    flex-direction: column;
+  }
+  .content .top .media-icons {
+    margin-top: 16px;
+  }
+  footer .content .link-boxes .box {
+    width: calc(100% / 2 - 10px);
+  }
+  footer .content .link-boxes .input-box {
+    width: 100%;
+  }
+}
+
 </style>
                                 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
                                 <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
@@ -1153,12 +1419,13 @@ Generic layout (demo looks)
         <div>
           <a href="{{ url_for('abouthg') }}">About HGAE</a>
           <a href="{{ url_for('my_link') }}">Management</a>
-          <a href="{{ url_for('aboutprincipal') }}">Our Director</a>
-          <a href="{{ url_for('abouthg') }}">Our Principal</a>
-          <a href="{{ url_for('abouthg') }}">Why HGAE</a>
+          <a href="{{ url_for('chairman') }}">Our Chairman</a>
+          <a href="{{ url_for('secretary') }}">Our Secretary</a>
+          <a href="{{ url_for('aboutprincipal') }}">Our Principal</a>
+          <a href="{{ url_for('whyhgae') }}">Why HGAE</a>
           
           
-          <a href="{{ url_for('placement') }}">Placement cell</a>
+          
           
 
         </div>
@@ -1193,9 +1460,9 @@ Generic layout (demo looks)
         <a href="{{ url_for('facilites') }}">Students corner</a>
         <div>
           <a href="{{ url_for('studentcorner') }}">Gallery</a>
-          <a href="{{ url_for('studentcorner') }}">Union</a>
-          <a href="{{ url_for('studentcorner') }}">Club</a>
-          <a href="{{ url_for('studentcorner') }}">PTA</a>
+          <a href="{{ url_for('union') }}">Union</a>
+          <a href="{{ url_for('iedc') }}">Club</a>
+          <a href="{{ url_for('union') }}">PTA</a>
         </div> 
       </li>
       <li>
@@ -1272,7 +1539,7 @@ Generic layout (demo looks)
         </div> -->
       </li>
       <li>
-        <a>Contact us</a>
+        <a href="{{ url_for('contactus') }}">Contact us</a>
         <!-- <div>
           <a>Link 1</a>
           <a>Link 2</a>
@@ -1359,20 +1626,19 @@ Generic layout (demo looks)
   <div style="height: 100px;"></div>
   <div id="vision">
     <div class="options">
-        <div class="option active" style="--optionBackground:url(https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg);">
+      <div class="option active" style="--optionBackground: url('{{ url_for('static', filename='images/mission.png') }}');">
             <div class="shadow"></div>
             <div class="label">
                 <div class="icon">
                     <i class="fas fa-walking"></i>
                 </div>
                 <div class="info">
-                    <div class="main">Vision</div>
+                    <div class="main"></div>
                     <div class="sub"></div>
                 </div>
             </div>
         </div>
-        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/8b69cdde47aa952e4176b4200052abf4/tumblr_o51p7mFFF21qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
+        <div class="option " style="--optionBackground: url('{{ url_for('static', filename='images/vision.png') }}');">            <div class="shadow"></div>
             <div class="label">
                 <div class="icon">
                     <i class="fas fa-snowflake"></i>
@@ -1383,8 +1649,7 @@ Generic layout (demo looks)
                 </div>
             </div>
         </div>
-        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/5af3f8303456e376ceda1517553ba786/tumblr_o4986gakjh1qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
+        <div class="option " style="--optionBackground: url('{{ url_for('static', filename='images/vision.png') }}');">                <div class="shadow"></div>
             <div class="label">
                 <div class="icon">
                     <i class="fas fa-tree"></i>
@@ -1395,8 +1660,7 @@ Generic layout (demo looks)
                 </div>
             </div>
         </div>
-        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/5516a22e0cdacaa85311ec3f8fd1e9ef/tumblr_o45jwvdsL11qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
+        <div class="option " style="--optionBackground: url('{{ url_for('static', filename='images/vision.png') }}');">                <div class="shadow"></div>
             <div class="label">
                 <div class="icon">
                     <i class="fas fa-tint"></i>
@@ -1407,8 +1671,7 @@ Generic layout (demo looks)
                 </div>
             </div>
         </div>
-        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/f19901f50b79604839ca761cd6d74748/tumblr_o65rohhkQL1qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
+        <div class="option " style="--optionBackground: url('{{ url_for('static', filename='images/vision.png') }}');">                <div class="shadow"></div>
             <div class="label">
                 <div class="icon">
                     <i class="fas fa-sun"></i>
@@ -1650,51 +1913,68 @@ Generic layout (demo looks)
       
     </section>
   </div>
-  <div name="footerbyjishnu">
+  <div name="footerbyjishnu" id="footer">
     <footer>
-      <div class="footer-main">
-        <div class="footer-info">
-          <div class="footer-info-div">
-            <img src="{{ url_for('static', filename='footer/assets/Frame 40.png') }}" alt="vonghub logo" class="footer-logo" />
-
-            <hr />
-
-            <p>
-              - G-9, Hemkunt Tower 98 Nehru Place <br />
-              New Delhi 110019
-            </p>
-            <p></p>
-            <a href="#" class="footer-link">- info@vong.earth</a>
+      <div class="content"> 
+        <div class="top"> 
+          <div class="logo-details">
+            <img src="{{ url_for('static', filename='images/images/engineering logo-01-01.png') }}" alt="logo" style="background-color: white;padding: 10px;">
+            <span class="logo_name">Holy Grace Academy of Engineering </span>
+          </div>
+          <div class="media-icons">
+            <a target="_blank" href="https://www.facebook.com/holygraceacademyofengineering/?locale=hi_IN"><i class="fab fa-facebook-f"></i></a>
+            <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://www.instagram.com/holy_grace_engineering_college/"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://in.linkedin.com/school/holygraceengineering/"><i class="fab fa-linkedin-in"></i></a>
+            <a target="_blank" href="#"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
-        <div class="footer-text">
-          <div class="footer-text-div">
-            <hr />
-            <p>
-              Let's transform the World together by taking small steps toward a
-              greener, cleaner, and more sustainable future. Be a part of the
-              VONG movement, and become the change-makers of tomorrow!
-            </p>
-            <hr />
-          </div>
+        <div class="link-boxes">
+          <ul class="box">
+            <li class="link_name">Quick Links</li>
+            <li><a href="#">KTU Website</a></li>
+            <li><a href="#">DT kerala</a></li>
+            <li><a href="#">CE kerala</a></li>
+            <li><a href="#">Grievience</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Result</li>
+            <li><a href="#">KTU Result</a></li>
+            <!-- <li><a href="#">Web design</a></li>
+            <li><a href="#">Logo design</a></li>
+            <li><a href="#">Banner design</a></li> -->
+          </ul>
+          <ul class="box">
+            <li class="link_name">Others</li>
+            <li><a href="#">AICTE</a></li>
+            <li><a href="#">AICTE feedback</a></li>
+            <li><a href="#">MD</a></li>
+            <li><a href="#">KTU Regulations</a></li>
+            <li><a href="#">AICTE Approvals</a></li>
+            <li><a href="#">Career@hgae</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Login</li>
+            <li><a href="#">Student</a></li>
+            <li><a href="#">Staff</a></li>
+            <li><a href="#">Parents</a></li>
+            <!-- <li><a href="#">Photoshop</a></li> -->
+          </ul>
+          <!-- <ul class="box input-box">
+            <li class="link_name">Subscribe</li>
+            <li><input type="text" placeholder="Enter your email"></li>
+            <li><input type="button" value="Subscribe"></li>
+          </ul> -->
         </div>
       </div>
-      <div class="footer-line">
-        <hr />
-      </div>
-      <div class="footer-social-icons">
-        <a href="#" class="footer-social-icon"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
-        <a href="#" class="footer-social-icon"><ion-icon name="logo-instagram" size="large"></ion-icon></a>
-        <a href="#" class="footer-social-icon"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
-
-        <a href="#" class="footer-social-icon"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
-      </div>
-      <div class="footer-contact">
-        <p>Contact us</p>
-        <p>FAQs</p>
-      </div>
-      <div class="footer-copyright">
-        <p>Copyright © 2023 – VONG</p>
+      <div class="bottom-details">
+        <div class="bottom_text">
+          <span class="copyright_text">Design and Developed by Departemnt Of Computer Science Engineering | <a href="#">  Website Team </a></span>
+          <br>
+          <span class="policy_terms">
+            <p><a class="Copyright" href="#">Copyright © holygrace </a></p>
+          </span>
+        </div>
       </div>
     </footer>
   </div>

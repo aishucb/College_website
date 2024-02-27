@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Tabs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            position: relative;
+            margin-right: 10%;
+        }
+        img{
+            width: 400px;
+            height: 400px;
+        }
+
+        h1, .contact-info {
+            position: relative;
+            z-index: 1; /* Bring the text and contact-info to the front */
+        }
+
+        h1 {
+            color: #e5b300;
+            text-align: center;
+            font-size: 4em;
+        }
+
+        .contact-info {
+            height: 50px; /* Adjust the height as needed */
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for .contact-info */
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            color: #e6b209;
+        }
+
+        .phone {
+            color: #009933;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8); /* White background with opacity for the card */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: justify;
+            margin: 0 auto; /* Center the card */
+           max-width: 70%;
+        }
+
+        p {
+            color: #000000;
+            line-height: 1.5;
+            padding: 0; /* Reset padding from the global style */
+        }
+
+        b {
+            font-weight: bold;
+        }
+
+        .profile-image {
+            float: right;
+            margin: 0 0 20px 20px; /* Adjust margin as needed */
+            border-radius: 50%; /* Make the image round */
+            border: 2px solid #e5b300; /* Add a border */
+        }
+    </style>
+</head>
+<body>
+
+    <img  src="{{ url_for('static', filename='images/avatar.jpg') }}"  alt="Profile Image" class="profile-image">
+    <h1>CHAIRMAN'S MESSAGE</h1>
+    <div class="card">
+<p style="color: #494b35e8;">Dear Parents,
+
+    True to the Holy Grace legacy of treading on the road less travelled, of following a different path, the Holy Grace Academy of Engineering too is stuffed with lots of innovations that are designed to mould the next generation of engineering professionals. Our speciality is the super competency add-on courses that we offer along with all branches of B.Tech. It is a complete industry endorsed package with the university syllabus at its core and all the industry specific skills and practical knowledge bound around as super competency add-on modules. The B.Tech program is affiliated to Calicut University and approved by AICTE.
+    As a part of our intense training rigour, we have planned visits to industrial fairs in India and abroad to expand the students, knowledge levels and to familiarize them with the current global scenario. Periodical talks by top technical executives are organized in the campus as a part of the industry-academia interface. English as a means of communication is increasingly becoming relevant in today’s world, hence to give our students a strong background in written and spoken communication skills, we have regular spoken English classes as well as a language lab for improving corporate communication skills and specialized training modules for improving soft skills.
+    I assure you of our uncompromising commitment towards developing your son or daughter into a thorough professional with a global outlook.
+    Shri. Sany Edattukaran
+    
+    <br><br><span style="font-weight: bold;color: #000000;">Sany Edattukaran </span>
+    <br><span style="font-weight: lighter;">Chairman,HGAE </span>
+    </p>
+    </div>
+</body>
+</html>
