@@ -1,11 +1,3 @@
-from flask import Flask,render_template
-from pymongo import MongoClient
-
-from flask import Flask, render_template, redirect, request, url_for
-from pymongo import MongoClient
-from bson import ObjectId
-import os
-
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -13,13 +5,15 @@ from pymongo import MongoClient
 from bson import ObjectId
 import os
 
+
 uri = "mongodb+srv://holygraceiedc:CIpx5ne5mmBaHYsT@collegewebsite.2ax8qbs.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri)
 db = client.get_database("collegewebsite")
 
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'static/UPLOAD_FOLDER'
+UPLOAD_FOLDER_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'UPLOAD_FOLDER')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER_PATH
 app.config['SECRET_KEY'] = 'your_secret_key'  # Change this to a secret key for your application
 
 login_manager = LoginManager()
@@ -37,7 +31,7 @@ def hello_world():
     last_six_documents = documents.limit(6)
 
 # Create news_data list for the last six documents
-   
+
     news_data = [
     {
         'newsDate': document.get('newsDate', 'Unknown'),
@@ -144,6 +138,9 @@ def loading():
 
 
 
+def check_password(saved_password, provided_password):
+    return check_password_hash(saved_password, provided_password)
+
 
 
 # Login route
@@ -155,7 +152,7 @@ def login():
 
         user_data = users_collection.find_one({'_id': username})
 
-        if user_data and check_password_hash(user_data['password'], password):
+        if user_data and check_password(user_data['password'], password):
             user = User(username=username, password=user_data['password'], email=user_data['email'])
             login_user(user)
             flash('Login successful.', 'success')
@@ -164,6 +161,30 @@ def login():
             flash('Invalid username or password. Please try again.', 'danger')
 
     return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
+
+        # Check if the username is already taken
+        if users_collection.find_one({'_id': username}):
+            flash('Username is already taken. Please choose a different one.', 'danger')
+        else:
+            # Hash the password before storing it
+            hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+            user_data = {
+                '_id': username,
+                'password': hashed_password,
+                'email': email
+            }
+            users_collection.insert_one(user_data)
+            flash('Registration successful. You can now log in.', 'success')
+            return redirect(url_for('login'))
+
+    return render_template('register.html')
 
 
 # Logout route
